@@ -1,0 +1,4592 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Қазалы қаласының құрылу шежіресі (1847–1906): интерактивті хронология, бекіністер картасы, «Дата дауы» және Python коды.">
+<title>Форт №1-ден Қазалыға дейін</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=PT+Serif+Caption&family=PT+Serif:wght@400;700&family=PT+Mono&display=swap">
+<style>
+/*!
+	Timeline JS 3 
+	
+	Designed and built by Zach Wise for the Northwestern University Knight Lab
+	
+	This Source Code Form is subject to the terms of the Mozilla Public
+	License, v. 2.0. If a copy of the MPL was not distributed with this
+	file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+*/
+/* Includes 
+================================================== */
+/*	VARIABLES
+	BASE
+----------------------------------------------------- */
+/* ICON PATH
+================================================== */
+/* TYPEFACE
+================================================== */
+/* COLOR SCHEME
+================================================== */
+/* UI COLOR
+================================================== */
+/* UI
+================================================== */
+/* Animation
+================================================== */
+/* GFX
+================================================== */
+/*!
+	Timeline JS 3
+
+	Designed and built by Zach Wise for the Northwestern University Knight Lab
+
+	This Source Code Form is subject to the terms of the Mozilla Public
+	License, v. 2.0. If a copy of the MPL was not distributed with this
+	file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+*/
+/* Includes
+================================================== */
+/*	Mixins.less
+	Snippets of reusable CSS to develop faster and keep code readable
+ * ----------------------------------------------------------------- */
+.tl-timeline {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* VCard
+	================================================== */
+}
+.tl-timeline h1,
+.tl-timeline h2,
+.tl-timeline h3,
+.tl-timeline h4,
+.tl-timeline h5,
+.tl-timeline h6 {
+  color: #000;
+}
+.tl-timeline h1,
+.tl-timeline h2,
+.tl-timeline h3 {
+  font-size: 28px;
+  line-height: 28px;
+}
+.tl-timeline h1 small,
+.tl-timeline h2 small,
+.tl-timeline h3 small {
+  font-size: 24px;
+  line-height: 24px;
+}
+.tl-timeline h4,
+.tl-timeline h5,
+.tl-timeline h6 {
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 0px;
+}
+.tl-timeline h4 small,
+.tl-timeline h5 small,
+.tl-timeline h6 small {
+  font-size: 15px;
+  line-height: 15px;
+}
+.tl-timeline h2.tl-headline-title {
+  font-size: 38px;
+  line-height: 38px;
+}
+.tl-timeline h2.tl-headline-title small {
+  display: block;
+  margin-top: 5px;
+  font-size: 24px;
+  line-height: 24px;
+}
+.tl-timeline h2 {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+.tl-timeline p {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.42857143;
+  color: #666666;
+}
+.tl-timeline p.lead {
+  font-size: 24px;
+}
+.tl-timeline p a {
+  /*
+			color: lighten(@color-dark, 40%);
+			text-decoration: none;
+			background-image: -moz-linear-gradient(top, fade(lighten(@color-dark, 40%), 0%) 50%, fade(lighten(@color-dark, 40%), 60%) 50%);
+			background-image: -webkit-linear-gradient(top, fade(lighten(@color-dark, 40%), 0%) 50%, fade(lighten(@color-dark, 40%), 60%) 50%);
+			background-image: -o-linear-gradient(top, fade(lighten(@color-dark, 40%), 0%) 50%, fade(lighten(@color-dark, 40%), 60%) 50%);
+			background-image: linear-gradient(to bottom, fade(lighten(@color-dark, 40%), 0%) 50%, fade(lighten(@color-dark, 40%), 60%) 50%);
+			background-repeat: repeat-x;
+			background-size: 2px 2px;
+			background-position: 0 @base-font-size+2;
+			text-shadow: -2px -1px 0 white, 2px -1px 0 white, -2px 1px 0 white, 2px 1px 0 white;
+			&:hover,
+			&:focus {
+				color:@color-theme;
+				text-decoration: none;
+			}
+			*/
+  color: #666666;
+  text-decoration: underline;
+}
+.tl-timeline p a:hover,
+.tl-timeline p a:focus {
+  color: #c34528;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .tl-timeline p a {
+    text-decoration: underline;
+    background-image: none;
+    text-shadow: none;
+  }
+  .tl-timeline p a:hover,
+  .tl-timeline p a:focus {
+    color: #c34528;
+    text-decoration: underline;
+  }
+}
+.tl-timeline b,
+.tl-timeline strong {
+  font-weight: bold;
+}
+.tl-timeline i,
+.tl-timeline em {
+  font-style: italic;
+}
+.tl-timeline a {
+  text-decoration: none;
+  color: #c34528;
+}
+.tl-timeline a:hover {
+  text-decoration: underline;
+  color: #6e2717;
+}
+.tl-timeline .tl-caption,
+.tl-timeline .tl-credit,
+.tl-timeline .tl-slidenav-next,
+.tl-timeline .tl-slidenav-previous {
+  font-size: 11px;
+  line-height: 11px;
+}
+.tl-timeline .tl-caption a,
+.tl-timeline .tl-credit a,
+.tl-timeline .tl-slidenav-next a,
+.tl-timeline .tl-slidenav-previous a {
+  color: #000;
+}
+.tl-timeline .tl-makelink {
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+.tl-timeline blockquote,
+.tl-timeline blockquote p {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  color: #999999;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: left;
+  background: transparent;
+  border: 0px;
+  padding: 0px;
+}
+.tl-timeline blockquote cite,
+.tl-timeline blockquote p cite {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  color: #666666;
+  display: block;
+  text-align: right;
+  font-style: normal;
+}
+.tl-timeline blockquote cite:before,
+.tl-timeline blockquote p cite:before {
+  content: "\2014";
+}
+.tl-timeline blockquote p:before {
+  content: open-quote;
+  display: inline-block;
+  font-size: 28px;
+  position: relative;
+  top: 8px;
+  margin-right: 5px;
+}
+.tl-timeline blockquote p:after {
+  content: close-quote;
+  display: inline-block;
+  font-size: 28px;
+  position: relative;
+  top: 8px;
+  margin-left: 3px;
+}
+.tl-timeline blockquote {
+  margin: 10px;
+}
+.tl-timeline blockquote p {
+  margin: 0;
+}
+.tl-timeline .vcard {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 15px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.tl-timeline .vcard:before,
+.tl-timeline .vcard:after {
+  display: table;
+  content: "";
+}
+.tl-timeline .vcard:after {
+  clear: both;
+}
+.tl-timeline .vcard .twitter-date {
+  text-align: left;
+  font-size: 11px;
+}
+.tl-timeline .vcard .author {
+  float: right;
+}
+.tl-timeline .vcard a {
+  color: #333333;
+  text-decoration: none;
+}
+.tl-timeline .vcard a:hover {
+  text-decoration: none;
+}
+.tl-timeline .vcard a:hover .fn,
+.tl-timeline .vcard a:hover .nickname {
+  color: #c34528;
+}
+.tl-timeline .vcard .fn,
+.tl-timeline .vcard .nickname {
+  padding-left: 42px;
+}
+.tl-timeline .vcard .fn {
+  display: block;
+  font-weight: bold;
+}
+.tl-timeline .vcard .nickname {
+  margin-top: 1px;
+  display: block;
+  color: #666666;
+}
+.tl-timeline .vcard .avatar {
+  float: left;
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.tl-timeline .vcard .avatar img {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.tl-timeline .tl-text ul {
+  padding: 0px;
+  padding-left: 30px;
+  margin: 0;
+}
+.tl-timeline .tl-text ul li {
+  margin-bottom: 5px;
+}
+.tl-timeline .tl-button-calltoaction {
+  cursor: pointer;
+  font-weight: bold;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+.tl-timeline .tl-button-calltoaction .tl-button-calltoaction-text {
+  display: inline-block;
+  background-color: #c34528;
+  color: #fff;
+  padding: 10px 15px 10px 15px;
+  border-radius: 7px;
+}
+.tl-timeline .tl-note {
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: italic;
+  background-color: #fcf8e3;
+  font-size: 15px;
+  line-height: 17px;
+  padding: 10px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  color: #8a6d3b;
+  border: 1px solid #faebcc;
+  text-shadow: none;
+}
+@media only screen and (max-width: 800px), only screen and (max-device-width: 800px) {
+  .tl-timeline h1,
+  .tl-timeline h2,
+  .tl-timeline h3 {
+    font-size: 28px;
+    line-height: 28px;
+  }
+}
+@media only screen and (max-width: 500px), only screen and (max-device-width: 500px) {
+  .tl-timeline h1,
+  .tl-timeline h2,
+  .tl-timeline h3 {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+.tl-skinny h2 {
+  margin-top: 0px;
+}
+/* Icons
+================================================== */
+@font-face {
+  font-family: 'tl-icons';
+  src: url(../js/../css/icons/tl-icons.eot);
+  src: url(../js/../css/icons/tl-icons.eot?#iefix) format('embedded-opentype'), url(../js/../css/icons/tl-icons.ttf) format('truetype'), url(../js/../css/icons/tl-icons.woff2) format('woff2'), url(../js/../css/icons/tl-icons.woff) format('woff'), url(../js/../css/icons/tl-icons.svg#tl-icons) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="tl-icon-"],
+[class*=" tl-icon-"] {
+  font-family: 'tl-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.tl-icon-vine:after {
+  content: "\ea96";
+}
+.tl-icon-wikipedia:after {
+  content: "\eac8";
+}
+.tl-icon-chevron-right:after {
+  content: "\e315";
+}
+.tl-icon-chevron-left:after {
+  content: "\e314";
+}
+.tl-icon-youtube-logo:after {
+  content: "\ea9d";
+}
+.tl-icon-foursquare:after {
+  content: "\e947";
+}
+.tl-icon-camera-retro:after {
+  content: "\e90f";
+}
+.tl-icon-doc:after {
+  content: "\e926";
+}
+.tl-icon-weibo:after {
+  content: "\ea96";
+}
+.tl-icon-resize-horizontal:after {
+  content: "\e8d4";
+}
+.tl-icon-resize-vertical:after {
+  content: "\e8d5";
+}
+.tl-icon-resize-full:after {
+  content: "\e989";
+}
+.tl-icon-resize-small:after {
+  content: "\e98a";
+}
+.tl-icon-twitter:after {
+  content: "\ea96";
+}
+.tl-icon-google-plus:after {
+  content: "\ea8b";
+}
+.tl-icon-video:after {
+  content: "\ea9d";
+}
+.tl-icon-youtube:after {
+  content: "\ea9d";
+}
+.tl-icon-plaintext:after {
+  content: "\e926";
+}
+.tl-icon-storify:after {
+  content: "\e926";
+}
+.tl-icon-image-v2:after {
+  content: "\e90d";
+}
+.tl-icon-quote-v2:after {
+  content: "\e977";
+}
+.tl-icon-zoom-in:after {
+  content: "\e987";
+}
+.tl-icon-zoom-out:after {
+  content: "\e988";
+}
+.tl-icon-list:after {
+  content: "\e9bd";
+}
+.tl-icon-music:after {
+  content: "\ea94";
+}
+.tl-icon-spotify:after {
+  content: "\ea94";
+}
+.tl-icon-location:after {
+  content: "\e947";
+}
+.tl-icon-googlemaps:after {
+  content: "\e947";
+}
+.tl-icon-web:after {
+  content: "\e9cb";
+}
+.tl-icon-share-v2:after {
+  content: "\ea82";
+}
+.tl-icon-soundcloud:after {
+  content: "\eac3";
+}
+.tl-icon-video-v2:after {
+  content: "\ea9d";
+}
+.tl-icon-dailymotion:after {
+  content: "\ea9d";
+}
+.tl-icon-tumblr:after {
+  content: "\eab9";
+}
+.tl-icon-lastfm:after {
+  content: "\ea94";
+}
+.tl-icon-github:after {
+  content: "\eab0";
+}
+.tl-icon-goback:after {
+  content: "\e314";
+}
+.tl-icon-goend:after {
+  content: "\e315";
+}
+.tl-icon-prev2:after {
+  content: "\e314";
+}
+.tl-icon-next2:after {
+  content: "\e315";
+}
+.tl-icon-doc-v2:after {
+  content: "\e926";
+}
+.tl-icon-googledrive:after {
+  content: "\ea8f";
+}
+.tl-icon-facebook:after {
+  content: "\ea90";
+}
+.tl-icon-flickr:after {
+  content: "\eaa4";
+}
+.tl-icon-dribbble:after {
+  content: "\ea90";
+}
+.tl-icon-image:after {
+  content: "\e90d";
+}
+.tl-icon-vimeo:after {
+  content: "\eaa0";
+}
+.tl-icon-instagram:after {
+  content: "\ea92";
+}
+.tl-icon-pinterest:after {
+  content: "\ead1";
+}
+.tl-icon-arrow-left:after {
+  content: "\ea44";
+}
+.tl-icon-arrow-down:after {
+  content: "\ea43";
+}
+.tl-icon-arrow-up:after {
+  content: "\ea41";
+}
+.tl-icon-arrow-right:after {
+  content: "\ea42";
+}
+.tl-icon-share:after {
+  content: "\ea7d";
+}
+.tl-icon-blockquote:after {
+  content: "\e977";
+}
+.tl-icon-evernote:after {
+  content: "\e926";
+}
+.tl-icon-mappin:after {
+  content: "\e947";
+}
+.tl-icon-swipe-right:after {
+  content: "\e315";
+}
+.tl-icon-swipe-left:after {
+  content: "\e314";
+}
+.tl-icon-touch-spread:after {
+  content: "\e989";
+}
+.tl-icon-touch-pinch:after {
+  content: "\e98a";
+}
+.tl-icon-tiktok:after {
+  content: "\e908";
+}
+.tl-icon-bluesky:after {
+  content: "\e907";
+}
+/* Disable Text selection when dragging
+================================================== */
+.tl-dragging {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+/* MenuBar 
+================================================== */
+.tl-menubar {
+  position: absolute;
+  z-index: 11;
+  text-align: center;
+  color: #333;
+  overflow: hidden;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  top: 100%;
+  left: 50%;
+  left: 0;
+}
+/* Skinny
+================================================== */
+/* Mobile, iPhone
+================================================== */
+/* Mobile, iPhone and skinny
+================================================== */
+/* Color
+================================================== */
+/*
+.tl-sizebar.tl-sizebar-inverted {
+	border-bottom: 1px solid #FFF;
+	//background-color:#000;
+	color:#a5a5a5;
+	.tl-sizebar-button {
+		border-left: 1px solid darken(@color-background, 70);
+		//color:#a5a5a5;
+	}
+	.tl-sizebar-button:hover {
+		//background:@color-theme;
+		color:@color-background;
+	}
+}
+.tl-sizebar.tl-sizebar-inverted:before {
+	background-color:#000;
+	//.gradient-vertical (rgba(0,0,0,0.25), rgba(0,0,0,1));
+	//.translucent-background(rgb(0,0,0), .5);
+	border-top: 2px solid #000;
+	animation: invertToBlack 1s;
+	-webkit-animation:invertToBlack 1s; 
+}
+*/
+@keyframes invertToBlack {
+  from {
+    background-color: #FFF;
+  }
+  to {
+    background-color: #000;
+  }
+}
+@-webkit-keyframes invertToBlack {
+  from {
+    background: #FFF;
+  }
+  to {
+    background: #000;
+  }
+}
+@keyframes invertToWhite {
+  from {
+    background-color: #000;
+  }
+  to {
+    background-color: #FFF;
+  }
+}
+@-webkit-keyframes invertToWhite {
+  from {
+    background: #000;
+  }
+  to {
+    background: #FFF;
+  }
+}
+/* MenuBar Button
+================================================== */
+.tl-menubar-button {
+  border: none;
+  font-size: 18px;
+  line-height: 18px;
+  background-color: rgba(242, 242, 242, 0.9);
+  cursor: pointer;
+  padding: 5px 10px 5px 10px;
+  display: inline-block;
+  display: block;
+  color: #bfbfbf;
+}
+.tl-menubar-button:disabled {
+  opacity: 0.33;
+  cursor: default;
+}
+.tl-menubar-button:hover,
+.tl-menubar-button:focus-visible {
+  background: #333;
+  color: #FFF;
+}
+.tl-menubar-button:hover:disabled,
+.tl-menubar-button:focus-visible:disabled {
+  color: #bfbfbf;
+  background-color: rgba(242, 242, 242, 0.9);
+}
+.tl-mobile .tl-menubar-button {
+  display: block;
+}
+.tl-mobile .tl-menubar-button:hover {
+  background-color: rgba(242, 242, 242, 0.67);
+  color: #737373;
+}
+.tl-mobile .tl-menubar-button:active {
+  background: #c34528;
+  color: #FFF;
+}
+@keyframes invertToBlack {
+  from {
+    background-color: #FFF;
+  }
+  to {
+    background-color: #000;
+  }
+}
+@-webkit-keyframes invertToBlack {
+  from {
+    background: #FFF;
+  }
+  to {
+    background: #000;
+  }
+}
+@keyframes invertToWhite {
+  from {
+    background-color: #000;
+  }
+  to {
+    background-color: #FFF;
+  }
+}
+@-webkit-keyframes invertToWhite {
+  from {
+    background: #000;
+  }
+  to {
+    background: #FFF;
+  }
+}
+/* MESSAGE 
+================================================== */
+.tl-message,
+.tl-message-full {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: table;
+  overflow: hidden;
+  top: 0px;
+  left: 0px;
+  z-index: 99;
+  margin: auto;
+  text-align: center;
+}
+.tl-message .tl-message-container,
+.tl-message-full .tl-message-container {
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+.tl-message .tl-message-container .tl-message-content,
+.tl-message-full .tl-message-container .tl-message-content {
+  color: #666;
+  text-align: center;
+  font-size: 11px;
+  line-height: 13px;
+  text-transform: uppercase;
+  margin-top: 7.5px;
+  margin-bottom: 7.5px;
+  text-shadow: 1px 1px 1px #FFF;
+}
+.tl-message .tl-message-container .tl-message-content strong,
+.tl-message-full .tl-message-container .tl-message-content strong {
+  text-transform: uppercase;
+}
+.tl-message .tl-message-container .tl-loading-icon,
+.tl-message-full .tl-message-container .tl-loading-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #666;
+  vertical-align: middle;
+  -webkit-box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+  animation: rotateplane 1.2s infinite ease-in-out;
+}
+@-webkit-keyframes rotateplane {
+  0% {
+    -webkit-transform: perspective(120px);
+  }
+  50% {
+    -webkit-transform: perspective(120px) rotateY(180deg);
+  }
+  100% {
+    -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg);
+  }
+}
+@keyframes rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+.tl-message-full {
+  background-color: hsla(0, 0%, 100%, 0.8);
+}
+.tl-message-full [class^="tl-icon-"],
+.tl-message-full [class*=" tl-icon-"] {
+  color: #666;
+  font-size: 72px;
+}
+.tl-message-full .tl-message-container .tl-message-content {
+  font-size: 22px;
+  line-height: 22px;
+  text-shadow: none;
+  color: #666;
+  text-transform: none;
+  font-weight: normal;
+}
+.tl-message-full .tl-message-container .tl-message-content .tl-button {
+  display: inline-block;
+  cursor: pointer;
+  background-color: #FFF;
+  color: #333;
+  padding: 10px;
+  margin-top: 10px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+/* TL.TimeNav
+================================================== */
+.tl-timenav {
+  width: 100%;
+  background-color: #f2f2f2;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #e5e5e5;
+  direction: ltr;
+}
+.tl-timenav .tl-timenav-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background-color: #d9d9d9;
+  z-index: 2;
+  display: none;
+}
+.tl-timenav .tl-timenav-line:before,
+.tl-timenav .tl-timenav-line:after {
+  font-family: 'tl-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #c34528;
+  font-size: 32px;
+  line-height: 32px;
+  position: absolute;
+  left: -14px;
+}
+.tl-timenav .tl-timenav-line:before {
+  top: -10px;
+}
+.tl-timenav .tl-timenav-line:after {
+  content: "\ea41";
+  bottom: 24px;
+}
+.tl-timenav .tl-timenav-slider {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
+.tl-timenav .tl-timenav-slider.tl-timenav-slider-animate {
+  -webkit-transition: all 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: all 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: all 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+.tl-timenav .tl-timenav-slider .tl-timenav-slider-background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  cursor: move;
+  z-index: 6;
+}
+.tl-timenav .tl-timenav-slider .tl-timenav-container-mask {
+  position: absolute;
+  height: 100%;
+  top: 0;
+}
+.tl-timenav .tl-timenav-slider .tl-timenav-container-mask .tl-timenav-container {
+  position: absolute;
+  height: 100%;
+}
+.tl-timenav .tl-timenav-slider .tl-timenav-container-mask .tl-timenav-container .tl-timenav-item-container {
+  position: absolute;
+  height: 100%;
+}
+/* Skinny
+================================================== */
+/* Mobile, iPhone
+================================================== */
+/* Mobile, iPhone and skinny
+================================================== */
+/* TL.TimeMarker
+================================================== */
+.tl-timemarker {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  /* Animate Left Width and Top
+	================================================== */
+  -webkit-transition: left 1000ms cubic-bezier(0.77, 0, 0.175, 1), top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: left 1000ms cubic-bezier(0.77, 0, 0.175, 1), top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: left 1000ms cubic-bezier(0.77, 0, 0.175, 1), top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: left 1000ms cubic-bezier(0.77, 0, 0.175, 1), top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  /* Timespan
+	================================================== */
+  /* Lines
+	================================================== */
+  /* Content
+	================================================== */
+  /* Hover | Focus State
+	================================================== */
+  /* Hover | Focus Active State
+	================================================== */
+  /* Focus-visible State
+    ================================================== */
+  /* Active Markers
+	================================================== */
+  /* Markers with End Dates
+	================================================== */
+  /* Markers with End Dates and Hover
+	================================================== */
+  /* Markers with End Dates and Active
+	================================================== */
+  /* Markers with End Dates and Active and Hover
+	================================================== */
+}
+.tl-timemarker.tl-timemarker-fast {
+  -webkit-transition: top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+.tl-timemarker.tl-timemarker-fast .tl-timemarker-content-container {
+  -webkit-transition: width 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: width 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: width 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: width 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.tl-timemarker.tl-timemarker-fast .tl-timemarker-timespan {
+  -webkit-transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 500ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.tl-timemarker .tl-timemarker-timespan {
+  pointer-events: none;
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(229, 229, 229, 0.15);
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  -webkit-transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+.tl-timemarker .tl-timemarker-timespan .tl-timemarker-timespan-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background-color: #e5e5e5;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: 100px;
+  box-sizing: border-box;
+}
+.tl-timemarker .tl-timemarker-line-right {
+  display: none;
+  right: 0px;
+}
+.tl-timemarker .tl-timemarker-line-left {
+  width: 1px;
+  left: 0px;
+}
+.tl-timemarker .tl-timemarker-line-left,
+.tl-timemarker .tl-timemarker-line-right {
+  margin-top: 7px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  border-left: 1px solid #d9d9d9;
+  z-index: 5;
+  content: " ";
+  position: absolute;
+  height: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-shadow: 1px 1px 1px #FFF;
+}
+.tl-timemarker .tl-timemarker-line-left:after,
+.tl-timemarker .tl-timemarker-line-right:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  left: -4px;
+  bottom: 0px;
+  height: 6px;
+  width: 6px;
+  background-color: #919191;
+  z-index: 8;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.tl-timemarker .tl-timemarker-content-container {
+  position: absolute;
+  background-color: #e5e5e5;
+  border: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  height: 100%;
+  width: 100px;
+  overflow: hidden;
+  z-index: 6;
+  -webkit-transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  box-sizing: border-box;
+  border: 1px solid #d9d9d9;
+  box-shadow: 1px 1px 1px #FFF;
+}
+.tl-timemarker .tl-timemarker-content-container:hover {
+  z-index: 9;
+}
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  z-index: 8;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text {
+  overflow: hidden;
+  position: relative;
+}
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline,
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline p {
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  box-orient: vertical;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  line-height: 12px;
+  height: 100%;
+  overflow: hidden;
+  font-weight: normal;
+  margin: 0;
+  color: #bfbfbf;
+  position: relative;
+}
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline.tl-headline-fadeout:after,
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline p.tl-headline-fadeout:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 50%;
+  background: -moz-linear-gradient(top, rgba(229, 229, 229, 0) 0%, #e5e5e5 50%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(229, 229, 229, 0)), color-stop(50%, #e5e5e5));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(229, 229, 229, 0) 0%, #e5e5e5 50%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(229, 229, 229, 0) 0%, #e5e5e5 50%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(229, 229, 229, 0) 0%, #e5e5e5 50%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(229, 229, 229, 0) 0%, #e5e5e5 50%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@thecolor', endColorstr='@thecolor', GradientType=0);
+  /* IE6-9 */
+}
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container {
+  float: left;
+  max-width: 24px;
+  max-height: 24px;
+  overflow: hidden;
+  margin-right: 5px;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container .tl-timemarker-media {
+  max-width: 24px;
+  max-height: 100%;
+  opacity: 0.25;
+}
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container [class^="tl-icon-"],
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container [class*=" tl-icon-"] {
+  display: block;
+  font-size: 24px;
+  color: #bfbfbf;
+  margin-top: 0px;
+}
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container .tl-icon-wikipedia {
+  font-size: 16px;
+}
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content.tl-timemarker-content-small .tl-timemarker-text h2.tl-headline {
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content.tl-timemarker-content-small .tl-timemarker-media-container [class^="tl-icon-"],
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content.tl-timemarker-content-small .tl-timemarker-media-container [class*=" tl-icon-"] {
+  font-size: 12px;
+}
+.tl-timemarker:hover .tl-timemarker-timespan,
+.tl-timemarker:focus .tl-timemarker-timespan {
+  background-color: rgba(191, 191, 191, 0.25);
+}
+.tl-timemarker:hover .tl-timemarker-timespan .tl-timemarker-timespan-content,
+.tl-timemarker:focus .tl-timemarker-timespan .tl-timemarker-timespan-content {
+  background-color: #bfbfbf;
+}
+.tl-timemarker:hover .tl-timemarker-timespan .tl-timemarker-line-left,
+.tl-timemarker:focus .tl-timemarker-timespan .tl-timemarker-line-left,
+.tl-timemarker:hover .tl-timemarker-timespan .tl-timemarker-line-right,
+.tl-timemarker:focus .tl-timemarker-timespan .tl-timemarker-line-right {
+  border-color: #a6a6a6;
+}
+.tl-timemarker:hover .tl-timemarker-timespan .tl-timemarker-line-left:after,
+.tl-timemarker:focus .tl-timemarker-timespan .tl-timemarker-line-left:after,
+.tl-timemarker:hover .tl-timemarker-timespan .tl-timemarker-line-right:after,
+.tl-timemarker:focus .tl-timemarker-timespan .tl-timemarker-line-right:after {
+  background-color: #3d3d3d;
+}
+.tl-timemarker:hover .tl-timemarker-content-container,
+.tl-timemarker:focus .tl-timemarker-content-container {
+  background-color: #737373;
+  border-color: #a6a6a6;
+  -webkit-transition: height 250ms cubic-bezier(0.77, 0, 0.175, 1), width 250ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: height 250ms cubic-bezier(0.77, 0, 0.175, 1), width 250ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: height 250ms cubic-bezier(0.77, 0, 0.175, 1), width 250ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: height 250ms cubic-bezier(0.77, 0, 0.175, 1), width 250ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.tl-timemarker:hover .tl-timemarker-content-container.tl-timemarker-content-container-small,
+.tl-timemarker:focus .tl-timemarker-content-container.tl-timemarker-content-container-small {
+  width: 200px;
+}
+.tl-timemarker:hover .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline,
+.tl-timemarker:focus .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline {
+  color: #FFF;
+}
+.tl-timemarker:hover .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline.tl-headline-fadeout:after,
+.tl-timemarker:focus .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline.tl-headline-fadeout:after {
+  background: -moz-linear-gradient(top, rgba(115, 115, 115, 0) 0%, #737373 80%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(115, 115, 115, 0)), color-stop(80%, #737373));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(115, 115, 115, 0) 0%, #737373 80%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(115, 115, 115, 0) 0%, #737373 80%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(115, 115, 115, 0) 0%, #737373 80%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(115, 115, 115, 0) 0%, #737373 80%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@thecolor', endColorstr='@thecolor', GradientType=0);
+  /* IE6-9 */
+}
+.tl-timemarker:hover .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container .tl-timemarker-media,
+.tl-timemarker:focus .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container .tl-timemarker-media {
+  opacity: 1;
+}
+.tl-timemarker:hover .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container [class^="tl-icon-"],
+.tl-timemarker:focus .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container [class^="tl-icon-"],
+.tl-timemarker:hover .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container [class*=" tl-icon-"],
+.tl-timemarker:focus .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container [class*=" tl-icon-"] {
+  color: #FFF;
+}
+.tl-timemarker:hover.tl-timemarker-active .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline.tl-headline-fadeout:after,
+.tl-timemarker:focus.tl-timemarker-active .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline.tl-headline-fadeout:after {
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFF 80%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(80%, #FFF));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFF 80%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFF 80%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFF 80%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #FFF 80%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@thecolor', endColorstr='@thecolor', GradientType=0);
+  /* IE6-9 */
+}
+.tl-timemarker:hover.tl-timemarker-active .tl-timemarker-line-left,
+.tl-timemarker:focus.tl-timemarker-active .tl-timemarker-line-left,
+.tl-timemarker:hover.tl-timemarker-active .tl-timemarker-line-right,
+.tl-timemarker:focus.tl-timemarker-active .tl-timemarker-line-right {
+  border-color: #000;
+}
+.tl-timemarker:hover.tl-timemarker-active .tl-timemarker-line-left:after,
+.tl-timemarker:focus.tl-timemarker-active .tl-timemarker-line-left:after,
+.tl-timemarker:hover.tl-timemarker-active .tl-timemarker-line-right:after,
+.tl-timemarker:focus.tl-timemarker-active .tl-timemarker-line-right:after {
+  background-color: #000;
+}
+.tl-timemarker:focus-visible {
+  outline: none;
+}
+.tl-timemarker.tl-timemarker-active .tl-timemarker-timespan {
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 8;
+}
+.tl-timemarker.tl-timemarker-active .tl-timemarker-timespan .tl-timemarker-timespan-content {
+  background-color: #333;
+}
+.tl-timemarker.tl-timemarker-active .tl-timemarker-line-left,
+.tl-timemarker.tl-timemarker-active .tl-timemarker-line-right {
+  border-color: rgba(51, 51, 51, 0.5);
+  border-width: 1px;
+  z-index: 8;
+  box-shadow: 0px 1px 3px rgba(145, 145, 145, 0.5);
+}
+.tl-timemarker.tl-timemarker-active .tl-timemarker-line-left:after,
+.tl-timemarker.tl-timemarker-active .tl-timemarker-line-right:after {
+  background-color: #333;
+}
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
+  background-color: #FFF;
+  color: #333;
+  z-index: 9;
+  border-color: rgba(51, 51, 51, 0.5);
+  box-shadow: 1px 1px 3px rgba(145, 145, 145, 0.5);
+}
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline {
+  color: #333;
+}
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline.tl-headline-fadeout:after {
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFF 80%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(80%, #FFF));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFF 80%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFF 80%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFF 80%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #FFF 80%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@thecolor', endColorstr='@thecolor', GradientType=0);
+  /* IE6-9 */
+}
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container .tl-timemarker-media {
+  opacity: 1;
+}
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container [class^="tl-icon-"],
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container [class*=" tl-icon-"] {
+  color: #333;
+}
+.tl-timemarker.tl-timemarker-with-end .tl-timemarker-timespan .tl-timemarker-timespan-content {
+  display: block;
+}
+.tl-timemarker.tl-timemarker-with-end .tl-timemarker-timespan .tl-timemarker-line-left,
+.tl-timemarker.tl-timemarker-with-end .tl-timemarker-timespan .tl-timemarker-line-right {
+  z-index: 5;
+}
+.tl-timemarker.tl-timemarker-with-end .tl-timemarker-timespan:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  left: 0px;
+  bottom: -7px;
+  height: 6px;
+  width: 100%;
+  background-color: rgba(115, 115, 115, 0.15);
+  z-index: 6;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+.tl-timemarker.tl-timemarker-with-end .tl-timemarker-content-container.tl-timemarker-content-container-long {
+  box-shadow: none;
+}
+.tl-timemarker.tl-timemarker-with-end .tl-timemarker-line-right {
+  display: block;
+}
+.tl-timemarker.tl-timemarker-with-end .tl-timemarker-line-left {
+  box-shadow: none;
+}
+.tl-timemarker.tl-timemarker-with-end:hover .tl-timemarker-timespan:after {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+.tl-timemarker.tl-timemarker-with-end.tl-timemarker-active .tl-timemarker-timespan:after {
+  background-color: rgba(51, 51, 51, 0.5);
+}
+.tl-timemarker.tl-timemarker-with-end.tl-timemarker-active .tl-timemarker-line-left,
+.tl-timemarker.tl-timemarker-with-end.tl-timemarker-active .tl-timemarker-line-right {
+  border-width: 1px;
+}
+.tl-timemarker.tl-timemarker-with-end.tl-timemarker-active .tl-timemarker-line-left:after,
+.tl-timemarker.tl-timemarker-with-end.tl-timemarker-active .tl-timemarker-line-right:after {
+  background-color: #333 !important;
+}
+.tl-timemarker.tl-timemarker-with-end.tl-timemarker-active .tl-timemarker-line-left {
+  box-shadow: none;
+}
+.tl-timemarker.tl-timemarker-with-end.tl-timemarker-active:hover .tl-timemarker-timespan:after {
+  background-color: rgba(51, 51, 51, 0.5);
+}
+/* Skinny
+================================================== */
+/* Mobile, iPhone
+================================================== */
+/* Mobile, iPhone and skinny
+================================================== */
+/* TL.TimeMarker
+================================================== */
+.tl-timeera {
+  height: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 3;
+  /* Animate Left Width and Top
+	================================================== */
+  -webkit-transition: left 1000ms cubic-bezier(0.77, 0, 0.175, 1), top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: left 1000ms cubic-bezier(0.77, 0, 0.175, 1), top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: left 1000ms cubic-bezier(0.77, 0, 0.175, 1), top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: left 1000ms cubic-bezier(0.77, 0, 0.175, 1), top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  /* Timespan
+	================================================== */
+  /* Content
+	================================================== */
+}
+.tl-timeera.tl-timeera-fast {
+  -webkit-transition: top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+.tl-timeera .tl-timeera-background {
+  position: absolute;
+  background-color: #28a6c3;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+.tl-timeera.tl-timeera-color0 .tl-timeera-background {
+  background-color: #c34528;
+}
+.tl-timeera.tl-timeera-color1 .tl-timeera-background {
+  background-color: #28a6c3;
+}
+.tl-timeera.tl-timeera-color2 .tl-timeera-background {
+  background-color: #2832c3;
+}
+.tl-timeera.tl-timeera-color3 .tl-timeera-background {
+  background-color: #28c36c;
+}
+.tl-timeera.tl-timeera-color4 .tl-timeera-background {
+  background-color: #286dc3;
+}
+.tl-timeera.tl-timeera-color5 .tl-timeera-background {
+  background-color: #28c3a7;
+}
+.tl-timeera .tl-timeera-content-container {
+  position: absolute;
+  border: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  height: 100%;
+  width: 100px;
+  overflow: hidden;
+  -webkit-transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  box-sizing: border-box;
+  border: 1px solid #d9d9d9;
+}
+.tl-timeera .tl-timeera-content-container .tl-timeera-content {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+.tl-timeera .tl-timeera-content-container .tl-timeera-content .tl-timeera-text {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+.tl-timeera .tl-timeera-content-container .tl-timeera-content .tl-timeera-text h2.tl-headline {
+  bottom: 0px;
+  position: absolute;
+  display: -webkit-box;
+  line-clamp: 4;
+  -webkit-line-clamp: 4;
+  box-orient: vertical;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  font-size: 10px;
+  line-height: 10px;
+  overflow: hidden;
+  font-weight: normal;
+  margin: 0;
+  color: #FFF;
+  margin-left: 10px;
+}
+.tl-timeera .tl-timeera-content-container .tl-timeera-content .tl-timeera-text h2.tl-headline.tl-headline-fadeout:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 50%;
+  background: -moz-linear-gradient(top, rgba(229, 229, 229, 0) 0%, #e5e5e5 50%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(229, 229, 229, 0)), color-stop(50%, #e5e5e5));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(229, 229, 229, 0) 0%, #e5e5e5 50%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(229, 229, 229, 0) 0%, #e5e5e5 50%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(229, 229, 229, 0) 0%, #e5e5e5 50%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(229, 229, 229, 0) 0%, #e5e5e5 50%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@thecolor', endColorstr='@thecolor', GradientType=0);
+  /* IE6-9 */
+}
+/* Skinny
+================================================== */
+/* Mobile, iPhone
+================================================== */
+/* Mobile, iPhone and skinny
+================================================== */
+/* TL.TimeMarker
+================================================== */
+.tl-timegroup {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f2f2f2;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  /* Animate Left Width and Top
+	================================================== */
+  -webkit-transition: left 1000ms cubic-bezier(0.77, 0, 0.175, 1), top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: left 1000ms cubic-bezier(0.77, 0, 0.175, 1), top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: left 1000ms cubic-bezier(0.77, 0, 0.175, 1), top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: left 1000ms cubic-bezier(0.77, 0, 0.175, 1), top 500ms cubic-bezier(0.77, 0, 0.175, 1), height 500ms cubic-bezier(0.77, 0, 0.175, 1), width 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+.tl-timegroup .tl-timegroup-message {
+  color: #e0e0e0;
+  text-shadow: #FFF 0 2px 2px;
+  margin-left: 80px;
+}
+.tl-timegroup.tl-timegroup-alternate {
+  background-color: #fafafa;
+}
+.tl-timegroup.tl-timegroup-hidden {
+  display: none;
+}
+/* Skinny
+================================================== */
+/* Mobile, iPhone
+================================================== */
+/* Mobile, iPhone and skinny
+================================================== */
+/* TL.TimeAxis
+================================================== */
+.tl-timeaxis-background {
+  height: 39px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #FFF;
+  border-top: 1px solid #e5e5e5;
+  z-index: 2;
+}
+.tl-timeaxis {
+  height: 39px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+}
+.tl-timeaxis .tl-timeaxis-content-container {
+  position: relative;
+  bottom: 0;
+  height: 39px;
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major,
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor {
+  opacity: 0;
+  position: absolute;
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major .tl-timeaxis-tick,
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  text-align: center;
+  font-weight: normal;
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major .tl-timeaxis-tick .tl-timeaxis-tick-text,
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick .tl-timeaxis-tick-text {
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major .tl-timeaxis-tick:before,
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick:before {
+  content: "|";
+  display: block;
+  color: #FFF;
+  width: 1px;
+  overflow: hidden;
+  border-left: 1px solid #bfbfbf;
+  text-align: center;
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major.tl-timeaxis-animate .tl-timeaxis-tick,
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor.tl-timeaxis-animate .tl-timeaxis-tick {
+  -webkit-transition: all 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: all 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: all 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major.tl-timeaxis-animate-opacity .tl-timeaxis-tick,
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor.tl-timeaxis-animate-opacity .tl-timeaxis-tick {
+  -webkit-transition: opacity 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: opacity 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: opacity 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: opacity 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major {
+  z-index: 1;
+  background-color: #FFF;
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major .tl-timeaxis-tick {
+  font-size: 12px;
+  line-height: 14px;
+  color: #737373;
+  width: 100px;
+  margin-left: -50px;
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major .tl-timeaxis-tick:before {
+  border-color: #a6a6a6;
+  font-size: 18px;
+  line-height: 18px;
+  margin-bottom: 2px;
+  margin-left: 50px;
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick {
+  font-size: 11px;
+  line-height: 13px;
+  color: #bfbfbf;
+  width: 50px;
+  margin-left: -25px;
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick .tl-timeaxis-tick-text {
+  opacity: 0;
+  white-space: normal;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick .tl-timeaxis-tick-text span {
+  display: block;
+  font-size: 9px;
+  line-height: 9px;
+  margin-top: -2px;
+  color: #e6e6e6;
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick:before {
+  font-size: 9px;
+  line-height: 9px;
+  margin-left: 25px;
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick.tl-timeaxis-tick-hidden .tl-timeaxis-tick-text {
+  opacity: 0 !important;
+}
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick.tl-timeaxis-tick-hidden:before {
+  opacity: 0.33;
+}
+/* Skinny
+================================================== */
+/* Mobile, iPhone
+================================================== */
+/* Mobile, iPhone and skinny
+================================================== */
+.tlanimate {
+  -webkit-transform: translateZ(0);
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+}
+.tl-animate {
+  -webkit-transition: all 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: all 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: all 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+.tl-animate-opacity {
+  -webkit-transition: opacity 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: opacity 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: opacity 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: opacity 1000ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+/* SLIDE
+================================================== */
+.tl-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.tl-slide .tl-slide-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  display: none;
+  filter: alpha(opacity=50);
+  -khtml-opacity: 0.5;
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.tl-slide .tl-slide-scrollable-container {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  z-index: 1;
+}
+.tl-slide .tl-slide-content-container {
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+.tl-slide .tl-slide-content-container .tl-slide-content {
+  display: table;
+  vertical-align: middle;
+  direction: rtl;
+  padding-left: 100px;
+  padding-right: 100px;
+  position: relative;
+  max-width: 100%;
+  user-select: text;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.tl-slide .tl-slide-content-container .tl-slide-content .tl-media {
+  direction: ltr;
+  position: relative;
+  width: 100%;
+  min-width: 50%;
+  float: left;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.tl-slide .tl-slide-content-container .tl-slide-content .tl-text {
+  direction: ltr;
+  width: 50%;
+  max-width: 50%;
+  min-width: 120px;
+  padding: 0 20px 0 20px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+}
+/* Only Media (no text)
+================================================== */
+.tl-slide-media-only .tl-slide-content-container .tl-slide-content {
+  text-align: center;
+}
+.tl-slide-media-only .tl-slide-content-container .tl-slide-content .tl-media {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  min-width: 50%;
+  max-width: 100%;
+  float: none;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.tl-slide-media-only .tl-slide-content-container .tl-slide-content .tl-text {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+/* Only Text (no media)
+================================================== */
+.tl-slide-text-only .tl-slide-content-container .tl-slide-content {
+  text-align: center;
+}
+.tl-slide-text-only .tl-slide-content-container .tl-slide-content .tl-text {
+  max-width: 80%;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Background
+================================================== */
+.tl-slide.tl-full-image-background,
+.tl-slide.tl-full-color-background {
+  color: #FFF !important;
+  text-shadow: 1px 1px 1px #000 !important;
+}
+.tl-slide.tl-full-image-background p,
+.tl-slide.tl-full-color-background p,
+.tl-slide.tl-full-image-background h1,
+.tl-slide.tl-full-color-background h1,
+.tl-slide.tl-full-image-background h2,
+.tl-slide.tl-full-color-background h2,
+.tl-slide.tl-full-image-background h3,
+.tl-slide.tl-full-color-background h3,
+.tl-slide.tl-full-image-background h4,
+.tl-slide.tl-full-color-background h4,
+.tl-slide.tl-full-image-background h5,
+.tl-slide.tl-full-color-background h5,
+.tl-slide.tl-full-image-background h6,
+.tl-slide.tl-full-color-background h6 {
+  color: #FFF !important;
+  text-shadow: 1px 1px 1px #000 !important;
+}
+.tl-slide.tl-full-image-background a,
+.tl-slide.tl-full-color-background a,
+.tl-slide.tl-full-image-background b,
+.tl-slide.tl-full-color-background b,
+.tl-slide.tl-full-image-background i,
+.tl-slide.tl-full-color-background i,
+.tl-slide.tl-full-image-background blockquote,
+.tl-slide.tl-full-color-background blockquote,
+.tl-slide.tl-full-image-background blockquote p,
+.tl-slide.tl-full-color-background blockquote p {
+  text-shadow: 1px 1px 1px #000;
+  color: #ffffff;
+}
+.tl-slide.tl-full-image-background a:hover,
+.tl-slide.tl-full-color-background a:hover {
+  text-decoration: underline;
+  color: #c34528;
+}
+.tl-slide.tl-full-image-background .tl-caption,
+.tl-slide.tl-full-color-background .tl-caption,
+.tl-slide.tl-full-image-background .tl-credit,
+.tl-slide.tl-full-color-background .tl-credit {
+  color: #FFF !important;
+  text-shadow: 1px 1px 1px #000 !important;
+}
+.tl-slide.tl-full-image-background .tl-media-twitter blockquote,
+.tl-slide.tl-full-color-background .tl-media-twitter blockquote,
+.tl-slide.tl-full-image-background .tl-media-blockquote blockquote,
+.tl-slide.tl-full-color-background .tl-media-blockquote blockquote {
+  color: #FFF !important;
+  text-shadow: 1px 1px 1px #000 !important;
+}
+.tl-slide.tl-full-image-background .tl-media-twitter blockquote p,
+.tl-slide.tl-full-color-background .tl-media-twitter blockquote p,
+.tl-slide.tl-full-image-background .tl-media-blockquote blockquote p,
+.tl-slide.tl-full-color-background .tl-media-blockquote blockquote p {
+  color: #FFF !important;
+  text-shadow: 1px 1px 1px #000 !important;
+}
+.tl-slide.tl-full-image-background .vcard a,
+.tl-slide.tl-full-color-background .vcard a,
+.tl-slide.tl-full-image-background .vcard .nickname,
+.tl-slide.tl-full-color-background .vcard .nickname {
+  color: #FFF !important;
+  text-shadow: 1px 1px 1px #000 !important;
+}
+/* Full Image Background
+================================================== */
+.tl-slide.tl-full-image-background {
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center 25%;
+  text-shadow: 1px 1px 2px #000;
+}
+.tl-slide.tl-full-image-background p,
+.tl-slide.tl-full-image-background h1,
+.tl-slide.tl-full-image-background h2,
+.tl-slide.tl-full-image-background h3,
+.tl-slide.tl-full-image-background h4,
+.tl-slide.tl-full-image-background h5,
+.tl-slide.tl-full-image-background h6 {
+  text-shadow: 1px 1px 2px #000;
+}
+.tl-slide.tl-full-image-background .tl-caption,
+.tl-slide.tl-full-image-background .tl-credit {
+  text-shadow: 1px 1px 2px #000;
+}
+.tl-slide.tl-full-image-background .tl-media-twitter blockquote,
+.tl-slide.tl-full-image-background .tl-media-blockquote blockquote {
+  text-shadow: 1px 1px 2px #000 !important;
+}
+.tl-slide.tl-full-image-background .tl-media-twitter blockquote p,
+.tl-slide.tl-full-image-background .tl-media-blockquote blockquote p {
+  text-shadow: 1px 1px 2px #000 !important;
+}
+/* Color Background
+================================================== */
+/* Text Background
+================================================== */
+.tl-slide.tl-text-background .tl-text .tl-text-content-container {
+  padding: 20px;
+  /* Fallback for web browsers that doesn't support RGBa */
+  background: #000000 transparent;
+  /* RGBa with 0.6 opacity */
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+.tl-slide.tl-text-background .tl-text .tl-text-content-container h2 {
+  margin-top: 5px;
+}
+/* Skinny
+================================================== */
+.tl-skinny .tl-slide {
+  display: block;
+  padding-top: 10px;
+}
+.tl-skinny .tl-slide .tl-slide-content-container {
+  display: block;
+  position: static;
+  height: 100%;
+  display: -webkit-flex;
+  /* Safari */
+  display: flex;
+  align-items: center;
+  -webkit-align-items: center;
+  /* Safari 7.0+ */
+}
+.tl-skinny .tl-slide .tl-slide-content-container .tl-slide-content {
+  display: block;
+  display: -webkit-flex;
+  /* Safari */
+  display: flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  /* Safari */
+  position: static;
+  height: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.tl-skinny .tl-slide .tl-slide-content-container .tl-slide-content .tl-media {
+  width: 100%;
+  height: auto;
+  float: none;
+  display: block;
+  padding-top: 20px;
+  border-top: 1px solid #e6e6e6;
+}
+.tl-skinny .tl-slide .tl-slide-content-container .tl-slide-content .tl-text {
+  display: block;
+  height: auto;
+  vertical-align: initial;
+  position: static;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  float: none;
+  padding: 0;
+}
+.tl-skinny .tl-slide .tl-slide-content-container .tl-slide-content .tl-text .tl-text-content-container {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+.tl-skinny .tl-slide.tl-slide.tl-full-color-background .tl-slide-content-container .tl-slide-content .tl-media,
+.tl-skinny .tl-slide.tl-full-image-background .tl-slide-content-container .tl-slide-content .tl-media {
+  border-color: rgba(230, 230, 230, 0.25);
+}
+.tl-skinny .tl-slide.tl-slide-media-only .tl-slide-content-container .tl-slide-content {
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  /* Safari */
+}
+.tl-skinny .tl-slide.tl-slide-media-only .tl-slide-content-container .tl-slide-content .tl-media {
+  border-top: none;
+  padding-top: 0px;
+}
+/* Mobile, iPhone
+================================================== */
+/* Mobile, iPhone and skinny
+================================================== */
+.tl-mobile.tl-skinny .tl-slide .tl-slide-content-container .tl-slide-content .tl-media img,
+.tl-mobile.tl-skinny .tl-slide .tl-slide-content-container .tl-slide-content .tl-media embed,
+.tl-mobile.tl-skinny .tl-slide .tl-slide-content-container .tl-slide-content .tl-media object,
+.tl-mobile.tl-skinny .tl-slide .tl-slide-content-container .tl-slide-content .tl-media video,
+.tl-mobile.tl-skinny .tl-slide .tl-slide-content-container .tl-slide-content .tl-media iframe {
+  max-height: 175px;
+}
+/* SlideNav
+================================================== */
+/* NAVIGATION
+================================================== */
+.tl-slidenav-previous,
+.tl-slidenav-next {
+  position: absolute;
+  top: 45%;
+  z-index: 10;
+  cursor: pointer;
+  padding: 0;
+  outline-offset: 5px;
+  background-color: transparent;
+  border: none;
+  text-align: inherit;
+  text-transform: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+.tl-slidenav-previous .tl-slidenav-content-container,
+.tl-slidenav-next .tl-slidenav-content-container {
+  width: 100px;
+}
+.tl-slidenav-previous .tl-slidenav-title,
+.tl-slidenav-next .tl-slidenav-title,
+.tl-slidenav-previous .tl-slidenav-description,
+.tl-slidenav-next .tl-slidenav-description {
+  width: 80px;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  text-overflow: ellipsis;
+  /* Non standard for webkit */
+  /*
+	   -webkit-hyphens: auto;
+	      -moz-hyphens: auto;
+	       -ms-hyphens: auto;
+	           hyphens: auto;
+		*/
+}
+.tl-slidenav-previous .tl-slidenav-title small,
+.tl-slidenav-next .tl-slidenav-title small,
+.tl-slidenav-previous .tl-slidenav-description small,
+.tl-slidenav-next .tl-slidenav-description small {
+  display: block;
+}
+.tl-slidenav-previous .tl-slidenav-title,
+.tl-slidenav-next .tl-slidenav-title {
+  margin-top: 10px;
+  filter: alpha(opacity=15);
+  -khtml-opacity: 0.15;
+  -moz-opacity: 0.15;
+  opacity: 0.15;
+  font-size: 11px;
+  line-height: 11px;
+}
+.tl-slidenav-previous .tl-slidenav-description,
+.tl-slidenav-next .tl-slidenav-description {
+  font-size: 11px;
+  margin-top: 5px;
+  filter: alpha(opacity=0);
+  -khtml-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+}
+.tl-slidenav-previous .tl-slidenav-description small,
+.tl-slidenav-next .tl-slidenav-description small {
+  display: none;
+}
+/* NAVIGATION COLOR
+================================================== */
+.tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-icon,
+.tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-icon,
+.tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-title,
+.tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-title,
+.tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-description,
+.tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-description {
+  text-shadow: 1px 1px 1px #FFF;
+  color: #333;
+}
+.tl-slidenav-previous .tl-slidenav-content-container.tl-slidenav-inverted .tl-slidenav-icon,
+.tl-slidenav-next .tl-slidenav-content-container.tl-slidenav-inverted .tl-slidenav-icon,
+.tl-slidenav-previous .tl-slidenav-content-container.tl-slidenav-inverted .tl-slidenav-title,
+.tl-slidenav-next .tl-slidenav-content-container.tl-slidenav-inverted .tl-slidenav-title,
+.tl-slidenav-previous .tl-slidenav-content-container.tl-slidenav-inverted .tl-slidenav-description,
+.tl-slidenav-next .tl-slidenav-content-container.tl-slidenav-inverted .tl-slidenav-description {
+  color: #f2f2f2;
+  text-shadow: 1px 1px 1px #333;
+}
+/* ICONS
+================================================== */
+.tl-slidenav-next .tl-slidenav-icon,
+.tl-slidenav-previous .tl-slidenav-icon {
+  font-family: 'tl-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+.tl-slidenav-next {
+  text-align: right;
+  margin-right: 10px;
+  right: 0;
+}
+.tl-slidenav-next .tl-slidenav-title,
+.tl-slidenav-next .tl-slidenav-description {
+  margin-left: 20px;
+}
+.tl-slidenav-next .tl-slidenav-icon {
+  margin-left: 76px;
+}
+.tl-slidenav-next .tl-slidenav-icon:before {
+  content: "\e315";
+}
+.tl-slidenav-previous {
+  text-align: left;
+  left: 0;
+  margin-left: 10px;
+}
+.tl-slidenav-previous .tl-slidenav-icon {
+  margin-left: 0px;
+}
+.tl-slidenav-previous .tl-slidenav-icon:before {
+  content: "\e314";
+}
+[dir="rtl"] .tl-slidenav-previous {
+  direction: ltr;
+}
+[dir="rtl"] .tl-slidenav-next:hover .tl-slidenav-icon {
+  margin-right: -4px;
+}
+/* NAVIGATION HOVER
+================================================== */
+.tl-slidenav-previous:hover .tl-slidenav-title,
+.tl-slidenav-next:hover .tl-slidenav-title,
+.tl-slidenav-previous:focus-visible .tl-slidenav-title,
+.tl-slidenav-next:focus-visible .tl-slidenav-title {
+  filter: alpha(opacity=100);
+  -khtml-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+.tl-slidenav-previous:hover .tl-slidenav-description,
+.tl-slidenav-next:hover .tl-slidenav-description,
+.tl-slidenav-previous:focus-visible .tl-slidenav-description,
+.tl-slidenav-next:focus-visible .tl-slidenav-description {
+  filter: alpha(opacity=50);
+  -khtml-opacity: 0.5;
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}
+.tl-slidenav-next:hover .tl-slidenav-icon,
+.tl-slidenav-next:focus-visible .tl-slidenav-icon {
+  margin-left: 80px;
+}
+.tl-slidenav-previous:hover .tl-slidenav-icon,
+.tl-slidenav-previous:focus-visible .tl-slidenav-icon {
+  margin-left: -4px;
+}
+.tl-skinny .tl-slidenav-next .tl-slidenav-icon {
+  margin-left: 8px;
+}
+.tl-skinny .tl-slidenav-previous .tl-slidenav-content-container,
+.tl-skinny .tl-slidenav-next .tl-slidenav-content-container {
+  width: 32px;
+  height: 32px;
+}
+.tl-skinny .tl-slidenav-previous .tl-slidenav-title,
+.tl-skinny .tl-slidenav-next .tl-slidenav-title,
+.tl-skinny .tl-slidenav-previous .tl-slidenav-description,
+.tl-skinny .tl-slidenav-next .tl-slidenav-description {
+  display: none;
+}
+.tl-skinny .tl-slidenav-previous .tl-slidenav-icon,
+.tl-skinny .tl-slidenav-next .tl-slidenav-icon {
+  filter: alpha(opacity=33);
+  -khtml-opacity: 0.33;
+  -moz-opacity: 0.33;
+  opacity: 0.33;
+}
+.tl-skinny .tl-slidenav-next:hover .tl-slidenav-icon,
+.tl-skinny .tl-slidenav-next:focus-visible .tl-slidenav-icon {
+  margin-left: 12px;
+  filter: alpha(opacity=100);
+  -khtml-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+.tl-skinny .tl-slidenav-previous:hover .tl-slidenav-icon,
+.tl-skinny .tl-slidenav-previous:focus-visible .tl-slidenav-icon {
+  margin-left: -4px;
+  filter: alpha(opacity=100);
+  -khtml-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+.tl-layout-landscape.tl-mobile .tl-slidenav-next:hover {
+  /**
+            * On mobile the hover state stays on the button after the click
+            * Show the default margin as before the click
+            */
+}
+.tl-layout-landscape.tl-mobile .tl-slidenav-next:hover .tl-slidenav-icon {
+  margin-left: 76px;
+  filter: alpha(opacity=100);
+  -khtml-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+.tl-layout-landscape.tl-mobile .tl-slidenav-next:active .tl-slidenav-icon {
+  margin-left: 80px;
+}
+.tl-layout-landscape.tl-mobile .tl-slidenav-previous:hover {
+  /**
+            * On mobile the hover state stays on the button after the click
+            * Show the default margin as before the click
+            */
+}
+.tl-layout-landscape.tl-mobile .tl-slidenav-previous:hover .tl-slidenav-icon {
+  margin-left: 0px;
+  filter: alpha(opacity=100);
+  -khtml-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+.tl-layout-landscape.tl-mobile .tl-slidenav-previous:active .tl-slidenav-icon {
+  margin-left: -4px;
+}
+.tl-layout-portrait.tl-mobile .tl-slidenav-next:hover .tl-slidenav-icon {
+  filter: alpha(opacity=33);
+  -khtml-opacity: 0.33;
+  -moz-opacity: 0.33;
+  opacity: 0.33;
+}
+.tl-layout-portrait.tl-mobile .tl-slidenav-next:active .tl-slidenav-icon {
+  filter: alpha(opacity=100);
+  -khtml-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+.tl-layout-portrait.tl-mobile .tl-slidenav-previous:hover .tl-slidenav-icon {
+  filter: alpha(opacity=33);
+  -khtml-opacity: 0.33;
+  -moz-opacity: 0.33;
+  opacity: 0.33;
+}
+.tl-layout-portrait.tl-mobile .tl-slidenav-previous:active .tl-slidenav-icon {
+  filter: alpha(opacity=100);
+  -khtml-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+.tl-mobile .tl-slidenav-previous,
+.tl-skinny.tl-mobile .tl-slidenav-previous,
+.tl-skinny.tl-layout-landscape.tl-mobile .tl-slidenav-previous,
+.tl-skinny.tl-layout-portrait.tl-mobile .tl-slidenav-previous,
+.tl-mobile .tl-slidenav-next,
+.tl-skinny.tl-mobile .tl-slidenav-next,
+.tl-skinny.tl-layout-landscape.tl-mobile .tl-slidenav-next,
+.tl-skinny.tl-layout-portrait.tl-mobile .tl-slidenav-next {
+  display: none;
+}
+/* StorySlider
+================================================== */
+/* SLIDER CONTAINERS
+================================================== */
+.tl-storyslider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  position: relative;
+  box-sizing: content-box;
+  z-index: 8;
+}
+.tl-storyslider img,
+.tl-storyslider embed,
+.tl-storyslider object,
+.tl-storyslider video,
+.tl-storyslider iframe {
+  max-width: 100%;
+  position: relative;
+}
+.tl-storyslider .tl-slider-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.tl-storyslider .tl-slider-touch-mask {
+  width: 100%;
+  height: 100%;
+  z-index: 25;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+}
+.tl-storyslider .tl-slider-container-mask {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+}
+.tl-storyslider .tl-slider-container-mask .tl-slider-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.tl-storyslider .tl-slider-container-mask .tl-slider-container .tl-slider-item-container {
+  width: 100%;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+/* Skinny
+================================================== */
+/* Mobile, iPhone
+================================================== */
+/* Mobile, iPhone and skinny
+================================================== */
+/* Requires Variables.less
+================================================== */
+.tl-media {
+  width: 100%;
+  min-width: 50%;
+  height: 100%;
+  float: left;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+}
+.tl-media .tl-media-content-container.tl-media-content-container-text {
+  border-right: 1px solid #e6e6e6;
+  padding-right: 20px;
+}
+.tl-media .tl-media-content-container .tl-media-content {
+  position: relative;
+}
+.tl-media .tl-media-content-container .tl-media-content:before,
+.tl-media .tl-media-content-container .tl-media-content:after {
+  display: table;
+  content: "";
+}
+.tl-media .tl-media-content-container .tl-media-content:after {
+  clear: both;
+}
+.tl-media .tl-media-content-container .tl-media-content .tl-media-loaderror p {
+  color: #f2f2f2;
+  text-align: center;
+}
+.tl-media .tl-media-content-container .tl-media-content .tl-media-loaderror p span {
+  color: #f2f2f2;
+}
+.tl-media .tl-media-content-container .tl-media-content .tl-media-loaderror [class^="tl-icon-"],
+.tl-media .tl-media-content-container .tl-media-content .tl-media-loaderror [class*=" tl-icon-"] {
+  font-size: 28px;
+  color: #f2f2f2;
+  text-align: center;
+}
+.tl-media .tl-media-content-container .tl-media-content img,
+.tl-media .tl-media-content-container .tl-media-content embed,
+.tl-media .tl-media-content-container .tl-media-content object,
+.tl-media .tl-media-content-container .tl-media-content video {
+  max-width: 100%;
+  max-height: 100%;
+}
+/* Media Only Slides
+================================================== */
+.tl-slide-media-only .tl-media .tl-media-content-container.tl-media-content-container-text {
+  border-right: none;
+  padding-right: 0;
+}
+/* Media Shodow
+================================================== */
+.tl-media-shadow {
+  position: relative;
+  z-index: 1;
+  -webkit-box-shadow: 0 12px 10px -10px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 12px 10px -10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 12px 10px -10px rgba(0, 0, 0, 0.6);
+}
+.tl-slide.tl-full-image-background a,
+.tl-slide.tl-full-color-background a,
+.tl-slide.tl-full-image-background .vcard a,
+.tl-slide.tl-full-color-background .vcard a {
+  text-shadow: 1px 1px 1px #000;
+  color: #ffffff;
+}
+.tl-slide.tl-full-image-background a:hover,
+.tl-slide.tl-full-color-background a:hover {
+  text-decoration: underline;
+  color: #c34528;
+}
+/* Credit
+================================================== */
+.tl-credit {
+  color: #999999;
+  text-align: right;
+  display: block;
+  margin: 0 auto;
+  margin-top: 6px;
+  font-size: 10px;
+  line-height: 13px;
+}
+/* Caption
+================================================== */
+.tl-caption {
+  text-align: left;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  color: #666666;
+  font-size: 11px;
+  line-height: 14px;
+  text-rendering: optimizeLegibility;
+  word-wrap: break-word;
+}
+/* Full Image Background
+================================================== */
+.tl-full-image-background .tl-media-shadow:before,
+.tl-full-color-background .tl-media-shadow:before,
+.tl-full-image-background .tl-media-shadow:after,
+.tl-full-color-background .tl-media-shadow:after {
+  background: none;
+  -webkit-box-shadow: 0 0px 0px #000;
+  -moz-box-shadow: 0 0px 0px #000;
+  box-shadow: 0 0px 0px #000;
+}
+/* Skinny
+================================================== */
+.tl-skinny .tl-media {
+  width: 100%;
+  height: auto;
+  float: none;
+  display: block;
+}
+.tl-skinny .tl-media .tl-media-content-container.tl-media-content-container-text {
+  border-right: 0;
+  padding-right: 0;
+}
+.tl-skinny .tl-media .tl-media-content-container .tl-credit,
+.tl-skinny .tl-media .tl-media-content-container .tl-caption {
+  margin-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 8px;
+}
+.tl-skinny .tl-media .tl-media-content-container .tl-credit {
+  margin-top: 0px;
+}
+/* Mobile, iPhone
+================================================== */
+/* Mobile, iPhone and skinny
+================================================== */
+.tl-mobile.tl-skinny .tl-media {
+  width: 100%;
+  height: auto;
+  float: none;
+  display: block;
+}
+.tl-mobile.tl-skinny .tl-media .tl-media-content-container.tl-media-content-container-text {
+  border-right: 0;
+  padding-right: 0;
+}
+/* Requires Variables.less
+================================================== */
+.tl-text {
+  width: 50%;
+  max-width: 50%;
+  min-width: 120px;
+  padding: 0 20px 0 20px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  text-shadow: none;
+  color: #737373;
+}
+.tl-text p {
+  color: #737373;
+}
+.tl-text .tl-text-content-container .tl-text-headline-container {
+  display: flex;
+  flex-direction: column-reverse;
+  -webkit-flex-direction: column-reverse;
+  /* Safari */
+}
+.tl-text h2.tl-headline-title,
+.tl-text h2.tl-headline {
+  margin-top: 0;
+}
+.tl-text .tl-headline-date,
+.tl-text h3.tl-headline-date {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: normal;
+  margin: 0 0 3px 0;
+  color: #b3b3b3;
+}
+.tl-text .tl-headline-date small,
+.tl-text h3.tl-headline-date small {
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: normal;
+  color: #b3b3b3;
+}
+.tl-text .tl-text-date {
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #b3b3b3;
+}
+.tl-full-image-background .tl-text,
+.tl-full-color-background .tl-text,
+.tl-full-image-background .tl-text p,
+.tl-full-color-background .tl-text p {
+  color: #f2f2f2 !important;
+  text-shadow: 1px 1px 2px #000;
+}
+.tl-full-image-background .tl-text .tl-headline-date,
+.tl-full-color-background .tl-text .tl-headline-date,
+.tl-full-image-background .tl-text p .tl-headline-date,
+.tl-full-color-background .tl-text p .tl-headline-date,
+.tl-full-image-background .tl-text h3.tl-headline-date,
+.tl-full-color-background .tl-text h3.tl-headline-date,
+.tl-full-image-background .tl-text p h3.tl-headline-date,
+.tl-full-color-background .tl-text p h3.tl-headline-date {
+  color: #f2f2f2 !important;
+}
+.tl-full-image-background .tl-text .tl-headline-date small,
+.tl-full-color-background .tl-text .tl-headline-date small,
+.tl-full-image-background .tl-text p .tl-headline-date small,
+.tl-full-color-background .tl-text p .tl-headline-date small,
+.tl-full-image-background .tl-text h3.tl-headline-date small,
+.tl-full-color-background .tl-text h3.tl-headline-date small,
+.tl-full-image-background .tl-text p h3.tl-headline-date small,
+.tl-full-color-background .tl-text p h3.tl-headline-date small {
+  color: #f2f2f2 !important;
+}
+.tl-full-image-background .tl-text a:hover,
+.tl-full-color-background .tl-text a:hover,
+.tl-full-image-background .tl-text p a:hover,
+.tl-full-color-background .tl-text p a:hover {
+  text-decoration: underline;
+  color: #c34528;
+}
+/* Skinny
+================================================== */
+.tl-skinny .tl-text {
+  width: 100%;
+  max-width: 100%;
+  min-width: auto;
+  float: none;
+  margin-top: 20px;
+}
+.tl-skinny .tl-text h2.tl-headline-title,
+.tl-skinny .tl-text h2.tl-headline {
+  font-size: 32px;
+  line-height: 36px;
+}
+/* Medium
+================================================== */
+.tl-medium .tl-text h2.tl-headline-title,
+.tl-medium .tl-text h2.tl-headline {
+  font-size: 32px;
+  line-height: 36px;
+}
+/* Mobile, iPhone
+================================================== */
+/* Mobile, iPhone and skinny
+================================================== */
+.tl-mobile.tl-skinny .tl-media .tl-media-image {
+  max-height: 250px !important;
+}
+.tl-media .tl-media-twitter {
+  text-align: left;
+  clear: both;
+}
+.tl-media .tl-media-twitter blockquote {
+  margin: 0;
+  margin-right: 15px;
+  font-size: 15px;
+  line-height: 21px;
+  color: #333;
+}
+.tl-media .tl-media-twitter blockquote p {
+  font-size: 28px;
+  line-height: 30px;
+  color: #000;
+}
+.tl-media .tl-media-twitter blockquote p:before {
+  display: none;
+}
+.tl-media .tl-media-twitter blockquote p:after {
+  display: none;
+}
+.tl-media .tl-media-twitter .tl-icon-twitter {
+  color: #55ACEE;
+}
+.tl-media .tl-media-twitter .vcard a:hover,
+.tl-media .tl-media-twitter .vcard a.tl-date:hover {
+  text-decoration: none;
+  color: #55ACEE;
+}
+.tl-media .tl-media-twitter .vcard a:hover .fn,
+.tl-media .tl-media-twitter .vcard a.tl-date:hover .fn,
+.tl-media .tl-media-twitter .vcard a:hover .nickname,
+.tl-media .tl-media-twitter .vcard a.tl-date:hover .nickname {
+  color: #55ACEE;
+}
+.tl-slide-media-only .tl-media .tl-media-twitter {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tl-mobile.tl-skinny .tl-media .tl-media-twitter blockquote p {
+  font-size: 15px;
+  line-height: 21px;
+}
+.tl-skinny .tl-media .tl-media-twitter {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.tl-skinny .tl-media .tl-media-twitter blockquote p {
+  font-size: 24px;
+  line-height: 26px;
+}
+.tl-media .tl-media-blockquote {
+  text-align: left;
+  clear: both;
+}
+.tl-media .tl-media-blockquote blockquote {
+  margin: 0;
+  margin-right: 15px;
+  text-align: left;
+  font-size: 28px;
+  line-height: 30px;
+  color: #333;
+}
+.tl-media .tl-media-blockquote blockquote p {
+  font-size: 28px;
+  line-height: 30px;
+  color: #333;
+}
+.tl-media .tl-media-blockquote blockquote p:before,
+.tl-media .tl-media-blockquote blockquote p:after {
+  display: inline-block;
+  font-size: 36px;
+}
+.tl-media .tl-media-blockquote blockquote p:before {
+  content: open-quote;
+  margin-right: 5px;
+}
+.tl-media .tl-media-blockquote blockquote p:after {
+  content: close-quote;
+  margin-left: 3px;
+}
+.tl-media .tl-media-blockquote blockquote cite {
+  font-size: 15px;
+  line-height: 21px;
+  color: #999999;
+  text-align: right;
+  margin-top: 15px;
+}
+.tl-slide-media-only .tl-media .tl-media-blockquote {
+  border-right: 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (max-width: 800px), only screen and (max-device-width: 800px) {
+  .tl-media .tl-media-blockquote blockquote p {
+    font-size: 24px;
+    line-height: 26px;
+  }
+}
+@media only screen and (max-width: 500px), only screen and (max-device-width: 500px) {
+  .tl-media .tl-media-blockquote blockquote p {
+    font-size: 15px;
+    line-height: 21px;
+  }
+}
+.tl-mobile.tl-skinny .tl-media .tl-media-instagram {
+  max-height: 250px !important;
+}
+/* TikTok Media Styles
+================================================== */
+.tl-media .tl-media-tiktok {
+  position: relative;
+}
+.tl-media .tl-media-tiktok a {
+  position: relative;
+  display: inline-block;
+  max-height: 400px;
+  overflow: hidden;
+}
+.tl-media .tl-media-tiktok a:hover .tl-media-tiktok-play-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.tl-media .tl-media-tiktok img.tl-media-image {
+  max-height: 400px;
+  width: auto;
+  display: block;
+}
+.tl-media .tl-media-tiktok .tl-media-tiktok-play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+.tl-media .tl-media-tiktok .tl-media-tiktok-play-overlay span {
+  color: #fff;
+  font-size: 32px;
+  margin-left: 4px;
+}
+.tl-media .tl-media-tiktok .tl-media-tiktok-play-overlay span:before {
+  content: "▶";
+}
+.tl-media .tl-media-tiktok blockquote.tiktok-embed {
+  max-height: 350px !important;
+  overflow: hidden;
+  margin: 0 auto;
+}
+/* Mobile and Skinny adjustments
+================================================== */
+.tl-mobile.tl-skinny .tl-media .tl-media-tiktok a {
+  max-height: 300px;
+}
+.tl-mobile.tl-skinny .tl-media .tl-media-tiktok img.tl-media-image {
+  max-height: 300px;
+}
+.tl-mobile.tl-skinny .tl-media .tl-media-tiktok .tl-media-tiktok-play-overlay {
+  width: 60px;
+  height: 60px;
+}
+.tl-mobile.tl-skinny .tl-media .tl-media-tiktok .tl-media-tiktok-play-overlay span {
+  font-size: 24px;
+}
+/* Bluesky Media Styles
+================================================== */
+.tl-media .tl-media-bluesky .bluesky-post {
+  padding: 12px;
+  max-width: 550px;
+  max-height: 450px;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+.tl-media .tl-media-bluesky .tl-icon-bluesky {
+  color: #1185FE;
+}
+.tl-media .tl-media-bluesky .bluesky-author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.tl-media .tl-media-bluesky .bluesky-author-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+.tl-media .tl-media-bluesky .bluesky-author-link:hover .bluesky-display-name {
+  text-decoration: underline;
+}
+.tl-media .tl-media-bluesky .bluesky-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.tl-media .tl-media-bluesky .bluesky-display-name {
+  font-weight: 600;
+}
+.tl-media .tl-media-bluesky .bluesky-handle {
+  opacity: 0.6;
+  margin-left: 4px;
+  font-size: 0.9em;
+}
+.tl-media .tl-media-bluesky .bluesky-text {
+  margin: 8px 0;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.tl-media .tl-media-bluesky .bluesky-images {
+  margin: 8px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tl-media .tl-media-bluesky .bluesky-image {
+  max-width: 100%;
+  max-height: 300px;
+  height: auto;
+  width: auto;
+  border-radius: 6px;
+  display: block;
+}
+.tl-media .tl-media-bluesky .bluesky-link {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.tl-media .tl-media-bluesky .bluesky-link a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 13px;
+  opacity: 0.8;
+}
+.tl-media .tl-media-bluesky .bluesky-link a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+.tl-media .tl-media-bluesky .bluesky-quote {
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.03);
+}
+.tl-media .tl-media-bluesky .bluesky-quote-author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 0.9em;
+}
+.tl-media .tl-media-bluesky .bluesky-avatar-small {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.tl-media .tl-media-bluesky .bluesky-quote-text {
+  margin: 6px 0;
+  line-height: 1.3;
+  font-size: 0.9em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.tl-media .tl-media-bluesky .bluesky-quote-images {
+  margin: 6px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.tl-media .tl-media-bluesky .bluesky-image-small {
+  max-width: 100%;
+  max-height: 150px;
+  height: auto;
+  width: auto;
+  border-radius: 4px;
+  display: block;
+}
+/* Mobile and Skinny adjustments
+================================================== */
+.tl-mobile.tl-skinny .tl-media .tl-media-bluesky .bluesky-post {
+  padding: 10px;
+  max-height: 350px;
+}
+.tl-mobile.tl-skinny .tl-media .tl-media-bluesky .bluesky-avatar {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+}
+.tl-mobile.tl-skinny .tl-media .tl-media-bluesky .bluesky-image {
+  max-height: 250px;
+}
+.tl-media .tl-media-profile {
+  border-radius: 50%;
+}
+.tl-media .tl-media-iframe {
+  width: 100%;
+  height: 100%;
+}
+.tl-media .tl-media-iframe iframe {
+  width: 100%;
+  height: 100%;
+}
+.tl-media .tl-media-wikipedia {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+}
+.tl-media .tl-media-wikipedia .tl-icon-wikipedia {
+  font-size: 32px;
+  margin-right: 10px;
+  float: left;
+  padding-top: 3px;
+}
+.tl-media .tl-media-wikipedia .tl-wikipedia-pageimage {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.tl-media .tl-media-wikipedia .tl-wikipedia-title {
+  margin-left: 60px;
+  padding-left: 10px;
+  border-left: 1px solid #e6e6e6;
+  margin-bottom: 10px;
+}
+.tl-media .tl-media-wikipedia .tl-wikipedia-source {
+  font-size: 13px;
+  line-height: 15px;
+  font-style: italic;
+  margin-top: 3px;
+  display: block;
+  color: rgba(0, 0, 0, 0.5);
+}
+.tl-media .tl-media-wikipedia h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.tl-media .tl-media-wikipedia h4 a {
+  color: #000;
+  text-decoration: none;
+}
+.tl-media .tl-media-wikipedia p {
+  font-size: 13px;
+  line-height: 19px;
+}
+.tl-slide-media-only .tl-media .tl-media-wikipedia {
+  border-right: 0;
+  border-top: 1px solid #e6e6e6;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  padding-top: 25px;
+}
+.tl-slide.tl-full-image-background .tl-media .tl-media-wikipedia,
+.tl-slide.tl-full-color-background .tl-media .tl-media-wikipedia {
+  padding: 20px;
+  /* Fallback for web browsers that doesn't support RGBa */
+  background: #000000 transparent;
+  /* RGBa with 0.6 opacity */
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+.tl-slide.tl-full-image-background .tl-media .tl-media-wikipedia h4 a,
+.tl-slide.tl-full-color-background .tl-media .tl-media-wikipedia h4 a {
+  color: #FFF !important;
+  text-shadow: 1px 1px 1px #000 !important;
+}
+.tl-slide.tl-full-image-background .tl-media .tl-media-wikipedia a:hover,
+.tl-slide.tl-full-color-background .tl-media .tl-media-wikipedia a:hover {
+  text-decoration: underline;
+  color: #c34528;
+}
+.tl-slide.tl-full-image-background .tl-media .tl-media-wikipedia .tl-wikipedia-title,
+.tl-slide.tl-full-color-background .tl-media .tl-media-wikipedia .tl-wikipedia-title {
+  border-color: rgba(230, 230, 230, 0.25);
+}
+.tl-slide.tl-full-image-background .tl-media .tl-media-wikipedia .tl-wikipedia-source,
+.tl-slide.tl-full-color-background .tl-media .tl-media-wikipedia .tl-wikipedia-source {
+  color: rgba(230, 230, 230, 0.85);
+}
+.tl-mobile.tl-skinny .tl-media .tl-media-wikipedia,
+.tl-skinny .tl-media .tl-media-wikipedia {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.tl-media .tl-media-website {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+}
+.tl-media .tl-media-website .tl-media-website-description {
+  font-size: 16px;
+  line-height: 19px;
+  font-style: italic;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.tl-media .tl-media-website h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  line-height: 1;
+}
+.tl-media .tl-media-website h4 a {
+  color: #000;
+  text-decoration: none;
+}
+.tl-media .tl-media-website p {
+  font-size: 13px;
+  line-height: 19px;
+}
+.tl-media .tl-media-content-container .tl-media-content .tl-media-website img {
+  float: right;
+  max-width: 120px;
+  max-height: 120px;
+  margin: 4px 0 0 15px;
+}
+.tl-media .tl-media-content-container .tl-media-content .tl-media-website img.tl-media-website-icon {
+  max-width: 16px;
+  max-height: 16px;
+  float: none;
+  margin: 0;
+  margin-right: 3px;
+}
+.tl-slide.tl-full-image-background .tl-media .tl-media-website,
+.tl-slide.tl-full-color-background .tl-media .tl-media-website {
+  padding: 20px;
+  /* Fallback for web browsers that doesn't support RGBa */
+  background: #000000 transparent;
+  /* RGBa with 0.6 opacity */
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+.tl-slide.tl-full-image-background .tl-media .tl-media-website h4 a,
+.tl-slide.tl-full-color-background .tl-media .tl-media-website h4 a {
+  color: #FFF !important;
+  text-shadow: 1px 1px 1px #000 !important;
+}
+.tl-slide.tl-full-image-background .tl-media .tl-media-website a:hover,
+.tl-slide.tl-full-color-background .tl-media .tl-media-website a:hover {
+  text-decoration: underline;
+  color: #c34528;
+}
+.tl-mobile.tl-skinny .tl-media .tl-media-website {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* Timeline
+================================================== */
+.tl-timeline {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  line-height: normal;
+  overflow: hidden;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  background-color: #FFF;
+  color: #737373;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.tl-timeline.tl-timeline-embed {
+  box-sizing: border-box;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  border-radius: 0;
+}
+.tl-timeline.tl-timeline-full-embed {
+  box-sizing: border-box;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+}
+.tl-timeline .tl-attribution {
+  cursor: pointer;
+  z-index: 9;
+  position: absolute;
+  bottom: 2px;
+  left: 0px;
+  font-size: 10px;
+  line-height: 10px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 3px;
+}
+.tl-timeline .tl-attribution a {
+  color: #cccccc;
+}
+.tl-timeline .tl-attribution a:hover,
+.tl-timeline .tl-attribution a:focus-visible {
+  color: #000;
+  text-decoration: none;
+}
+.tl-timeline .tl-attribution a:hover .tl-knightlab-logo,
+.tl-timeline .tl-attribution a:focus-visible .tl-knightlab-logo {
+  background-color: #c34528;
+}
+.tl-timeline .tl-attribution .tl-knightlab-logo {
+  display: inline-block;
+  vertical-align: middle;
+  height: 8px;
+  width: 8px;
+  margin-right: 3px;
+  background-color: #c34528;
+  background-color: #cccccc;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+/* Portrait
+================================================== */
+.tl-layout-portrait .tl-storyslider {
+  -webkit-box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.2);
+}
+.tl-rtl .tl-text-content,
+.tl-rtl .tl-headline,
+.tl-rtl .tl-media-blockquote,
+.tl-rtl .tl-headline-date,
+.tl-rtl .tl-timeline blockquote p,
+.tl-rtl .tl-media-website,
+.tl-rtl .tl-media-wikipedia,
+.tl-rtl .tl-media .tl-media-blockquote blockquote,
+.tl-rtl .blockquote,
+.tl-rtl blockquote p,
+.tl-rtl .tl-text-content p {
+  text-align: right;
+  direction: rtl;
+}
+.tl-rtl .tl-slide-media-only .tl-headline,
+.tl-rtl .tl-slide-media-only .tl-headline-date {
+  text-align: center;
+}
+.tl-rtl .tl-timemarker-text {
+  margin-right: 35px;
+}
+.tl-rtl .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container {
+  float: right;
+}
+.tl-rtl .tl-caption {
+  text-align: right;
+}
+.tl-rtl .tl-credit {
+  text-align: left;
+}
+
+
+/*# sourceMappingURL=timeline.css.map*/@font-face{font-family:tl-icons;src:url(data:font/woff2;base64,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) format('woff2');font-weight:400;font-style:normal}
+/* required styles */
+
+.leaflet-pane,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-pane > svg,
+.leaflet-pane > canvas,
+.leaflet-zoom-box,
+.leaflet-image-layer,
+.leaflet-layer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	}
+.leaflet-container {
+	overflow: hidden;
+	}
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	        user-select: none;
+	  -webkit-user-drag: none;
+	}
+/* Prevents IE11 from highlighting tiles in blue */
+.leaflet-tile::selection {
+	background: transparent;
+}
+/* Safari renders non-retina tile on retina better with this, but Chrome is worse */
+.leaflet-safari .leaflet-tile {
+	image-rendering: -webkit-optimize-contrast;
+	}
+/* hack that prevents hw layers "stretching" when loading new tiles */
+.leaflet-safari .leaflet-tile-container {
+	width: 1600px;
+	height: 1600px;
+	-webkit-transform-origin: 0 0;
+	}
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	display: block;
+	}
+/* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */
+/* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */
+.leaflet-container .leaflet-overlay-pane svg {
+	max-width: none !important;
+	max-height: none !important;
+	}
+.leaflet-container .leaflet-marker-pane img,
+.leaflet-container .leaflet-shadow-pane img,
+.leaflet-container .leaflet-tile-pane img,
+.leaflet-container img.leaflet-image-layer,
+.leaflet-container .leaflet-tile {
+	max-width: none !important;
+	max-height: none !important;
+	width: auto;
+	padding: 0;
+	}
+
+.leaflet-container img.leaflet-tile {
+	/* See: https://bugs.chromium.org/p/chromium/issues/detail?id=600120 */
+	mix-blend-mode: plus-lighter;
+}
+
+.leaflet-container.leaflet-touch-zoom {
+	-ms-touch-action: pan-x pan-y;
+	touch-action: pan-x pan-y;
+	}
+.leaflet-container.leaflet-touch-drag {
+	-ms-touch-action: pinch-zoom;
+	/* Fallback for FF which doesn't support pinch-zoom */
+	touch-action: none;
+	touch-action: pinch-zoom;
+}
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.leaflet-container {
+	-webkit-tap-highlight-color: transparent;
+}
+.leaflet-container a {
+	-webkit-tap-highlight-color: rgba(51, 181, 229, 0.4);
+}
+.leaflet-tile {
+	filter: inherit;
+	visibility: hidden;
+	}
+.leaflet-tile-loaded {
+	visibility: inherit;
+	}
+.leaflet-zoom-box {
+	width: 0;
+	height: 0;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	z-index: 800;
+	}
+/* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */
+.leaflet-overlay-pane svg {
+	-moz-user-select: none;
+	}
+
+.leaflet-pane         { z-index: 400; }
+
+.leaflet-tile-pane    { z-index: 200; }
+.leaflet-overlay-pane { z-index: 400; }
+.leaflet-shadow-pane  { z-index: 500; }
+.leaflet-marker-pane  { z-index: 600; }
+.leaflet-tooltip-pane   { z-index: 650; }
+.leaflet-popup-pane   { z-index: 700; }
+
+.leaflet-map-pane canvas { z-index: 100; }
+.leaflet-map-pane svg    { z-index: 200; }
+
+.leaflet-vml-shape {
+	width: 1px;
+	height: 1px;
+	}
+.lvml {
+	behavior: url(#default#VML);
+	display: inline-block;
+	position: absolute;
+	}
+
+
+/* control positioning */
+
+.leaflet-control {
+	position: relative;
+	z-index: 800;
+	pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
+	pointer-events: auto;
+	}
+.leaflet-top,
+.leaflet-bottom {
+	position: absolute;
+	z-index: 1000;
+	pointer-events: none;
+	}
+.leaflet-top {
+	top: 0;
+	}
+.leaflet-right {
+	right: 0;
+	}
+.leaflet-bottom {
+	bottom: 0;
+	}
+.leaflet-left {
+	left: 0;
+	}
+.leaflet-control {
+	float: left;
+	clear: both;
+	}
+.leaflet-right .leaflet-control {
+	float: right;
+	}
+.leaflet-top .leaflet-control {
+	margin-top: 10px;
+	}
+.leaflet-bottom .leaflet-control {
+	margin-bottom: 10px;
+	}
+.leaflet-left .leaflet-control {
+	margin-left: 10px;
+	}
+.leaflet-right .leaflet-control {
+	margin-right: 10px;
+	}
+
+
+/* zoom and fade animations */
+
+.leaflet-fade-anim .leaflet-popup {
+	opacity: 0;
+	-webkit-transition: opacity 0.2s linear;
+	   -moz-transition: opacity 0.2s linear;
+	        transition: opacity 0.2s linear;
+	}
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
+	opacity: 1;
+	}
+.leaflet-zoom-animated {
+	-webkit-transform-origin: 0 0;
+	    -ms-transform-origin: 0 0;
+	        transform-origin: 0 0;
+	}
+svg.leaflet-zoom-animated {
+	will-change: transform;
+}
+
+.leaflet-zoom-anim .leaflet-zoom-animated {
+	-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);
+	   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);
+	        transition:         transform 0.25s cubic-bezier(0,0,0.25,1);
+	}
+.leaflet-zoom-anim .leaflet-tile,
+.leaflet-pan-anim .leaflet-tile {
+	-webkit-transition: none;
+	   -moz-transition: none;
+	        transition: none;
+	}
+
+.leaflet-zoom-anim .leaflet-zoom-hide {
+	visibility: hidden;
+	}
+
+
+/* cursors */
+
+.leaflet-interactive {
+	cursor: pointer;
+	}
+.leaflet-grab {
+	cursor: -webkit-grab;
+	cursor:    -moz-grab;
+	cursor:         grab;
+	}
+.leaflet-crosshair,
+.leaflet-crosshair .leaflet-interactive {
+	cursor: crosshair;
+	}
+.leaflet-popup-pane,
+.leaflet-control {
+	cursor: auto;
+	}
+.leaflet-dragging .leaflet-grab,
+.leaflet-dragging .leaflet-grab .leaflet-interactive,
+.leaflet-dragging .leaflet-marker-draggable {
+	cursor: move;
+	cursor: -webkit-grabbing;
+	cursor:    -moz-grabbing;
+	cursor:         grabbing;
+	}
+
+/* marker & overlays interactivity */
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-image-layer,
+.leaflet-pane > svg path,
+.leaflet-tile-container {
+	pointer-events: none;
+	}
+
+.leaflet-marker-icon.leaflet-interactive,
+.leaflet-image-layer.leaflet-interactive,
+.leaflet-pane > svg path.leaflet-interactive,
+svg.leaflet-image-layer.leaflet-interactive path {
+	pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
+	pointer-events: auto;
+	}
+
+/* visual tweaks */
+
+.leaflet-container {
+	background: #ddd;
+	outline-offset: 1px;
+	}
+.leaflet-container a {
+	color: #0078A8;
+	}
+.leaflet-zoom-box {
+	border: 2px dotted #38f;
+	background: rgba(255,255,255,0.5);
+	}
+
+
+/* general typography */
+.leaflet-container {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1.5;
+	}
+
+
+/* general toolbar styles */
+
+.leaflet-bar {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	border-radius: 4px;
+	}
+.leaflet-bar a {
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	}
+.leaflet-bar a,
+.leaflet-control-layers-toggle {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	display: block;
+	}
+.leaflet-bar a:hover,
+.leaflet-bar a:focus {
+	background-color: #f4f4f4;
+	}
+.leaflet-bar a:first-child {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	}
+.leaflet-bar a:last-child {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom: none;
+	}
+.leaflet-bar a.leaflet-disabled {
+	cursor: default;
+	background-color: #f4f4f4;
+	color: #bbb;
+	}
+
+.leaflet-touch .leaflet-bar a {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	}
+.leaflet-touch .leaflet-bar a:first-child {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	}
+.leaflet-touch .leaflet-bar a:last-child {
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	}
+
+/* zoom control */
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+	font: bold 18px 'Lucida Console', Monaco, monospace;
+	text-indent: 1px;
+	}
+
+.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out  {
+	font-size: 22px;
+	}
+
+
+/* layers control */
+
+.leaflet-control-layers {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+	background: #fff;
+	border-radius: 5px;
+	}
+.leaflet-control-layers-toggle {
+	background-image: none;
+	width: 36px;
+	height: 36px;
+	}
+.leaflet-retina .leaflet-control-layers-toggle {
+	background-image: none;
+	background-size: 26px 26px;
+	}
+.leaflet-touch .leaflet-control-layers-toggle {
+	width: 44px;
+	height: 44px;
+	}
+.leaflet-control-layers .leaflet-control-layers-list,
+.leaflet-control-layers-expanded .leaflet-control-layers-toggle {
+	display: none;
+	}
+.leaflet-control-layers-expanded .leaflet-control-layers-list {
+	display: block;
+	position: relative;
+	}
+.leaflet-control-layers-expanded {
+	padding: 6px 10px 6px 6px;
+	color: #333;
+	background: #fff;
+	}
+.leaflet-control-layers-scrollbar {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-right: 5px;
+	}
+.leaflet-control-layers-selector {
+	margin-top: 2px;
+	position: relative;
+	top: 1px;
+	}
+.leaflet-control-layers label {
+	display: block;
+	font-size: 13px;
+	font-size: 1.08333em;
+	}
+.leaflet-control-layers-separator {
+	height: 0;
+	border-top: 1px solid #ddd;
+	margin: 5px -10px 5px -6px;
+	}
+
+/* Default icon URLs */
+.leaflet-default-icon-path { /* used only in path-guessing heuristic, see L.Icon.Default */
+	background-image: none;
+	}
+
+
+/* attribution and scale controls */
+
+.leaflet-container .leaflet-control-attribution {
+	background: #fff;
+	background: rgba(255, 255, 255, 0.8);
+	margin: 0;
+	}
+.leaflet-control-attribution,
+.leaflet-control-scale-line {
+	padding: 0 5px;
+	color: #333;
+	line-height: 1.4;
+	}
+.leaflet-control-attribution a {
+	text-decoration: none;
+	}
+.leaflet-control-attribution a:hover,
+.leaflet-control-attribution a:focus {
+	text-decoration: underline;
+	}
+.leaflet-attribution-flag {
+	display: inline !important;
+	vertical-align: baseline !important;
+	width: 1em;
+	height: 0.6669em;
+	}
+.leaflet-left .leaflet-control-scale {
+	margin-left: 5px;
+	}
+.leaflet-bottom .leaflet-control-scale {
+	margin-bottom: 5px;
+	}
+.leaflet-control-scale-line {
+	border: 2px solid #777;
+	border-top: none;
+	line-height: 1.1;
+	padding: 2px 5px 1px;
+	white-space: nowrap;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	background: rgba(255, 255, 255, 0.8);
+	text-shadow: 1px 1px #fff;
+	}
+.leaflet-control-scale-line:not(:first-child) {
+	border-top: 2px solid #777;
+	border-bottom: none;
+	margin-top: -2px;
+	}
+.leaflet-control-scale-line:not(:first-child):not(:last-child) {
+	border-bottom: 2px solid #777;
+	}
+
+.leaflet-touch .leaflet-control-attribution,
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	box-shadow: none;
+	}
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	border: 2px solid rgba(0,0,0,0.2);
+	background-clip: padding-box;
+	}
+
+
+/* popup */
+
+.leaflet-popup {
+	position: absolute;
+	text-align: center;
+	margin-bottom: 20px;
+	}
+.leaflet-popup-content-wrapper {
+	padding: 1px;
+	text-align: left;
+	border-radius: 12px;
+	}
+.leaflet-popup-content {
+	margin: 13px 24px 13px 20px;
+	line-height: 1.3;
+	font-size: 13px;
+	font-size: 1.08333em;
+	min-height: 1px;
+	}
+.leaflet-popup-content p {
+	margin: 17px 0;
+	margin: 1.3em 0;
+	}
+.leaflet-popup-tip-container {
+	width: 40px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	margin-top: -1px;
+	margin-left: -20px;
+	overflow: hidden;
+	pointer-events: none;
+	}
+.leaflet-popup-tip {
+	width: 17px;
+	height: 17px;
+	padding: 1px;
+
+	margin: -10px auto 0;
+	pointer-events: auto;
+
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	        transform: rotate(45deg);
+	}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+	background: white;
+	color: #333;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+	}
+.leaflet-container a.leaflet-popup-close-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: none;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	font: 16px/24px Tahoma, Verdana, sans-serif;
+	color: #757575;
+	text-decoration: none;
+	background: transparent;
+	}
+.leaflet-container a.leaflet-popup-close-button:hover,
+.leaflet-container a.leaflet-popup-close-button:focus {
+	color: #585858;
+	}
+.leaflet-popup-scrolled {
+	overflow: auto;
+	}
+
+.leaflet-oldie .leaflet-popup-content-wrapper {
+	-ms-zoom: 1;
+	}
+.leaflet-oldie .leaflet-popup-tip {
+	width: 24px;
+	margin: 0 auto;
+
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
+	filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+	}
+
+.leaflet-oldie .leaflet-control-zoom,
+.leaflet-oldie .leaflet-control-layers,
+.leaflet-oldie .leaflet-popup-content-wrapper,
+.leaflet-oldie .leaflet-popup-tip {
+	border: 1px solid #999;
+	}
+
+
+/* div icon */
+
+.leaflet-div-icon {
+	background: #fff;
+	border: 1px solid #666;
+	}
+
+
+/* Tooltip */
+/* Base styles for the element that has a tooltip */
+.leaflet-tooltip {
+	position: absolute;
+	padding: 6px;
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	color: #222;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	}
+.leaflet-tooltip.leaflet-interactive {
+	cursor: pointer;
+	pointer-events: auto;
+	}
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	position: absolute;
+	pointer-events: none;
+	border: 6px solid transparent;
+	background: transparent;
+	content: "";
+	}
+
+/* Directions */
+
+.leaflet-tooltip-bottom {
+	margin-top: 6px;
+}
+.leaflet-tooltip-top {
+	margin-top: -6px;
+}
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-top:before {
+	left: 50%;
+	margin-left: -6px;
+	}
+.leaflet-tooltip-top:before {
+	bottom: 0;
+	margin-bottom: -12px;
+	border-top-color: #fff;
+	}
+.leaflet-tooltip-bottom:before {
+	top: 0;
+	margin-top: -12px;
+	margin-left: -6px;
+	border-bottom-color: #fff;
+	}
+.leaflet-tooltip-left {
+	margin-left: -6px;
+}
+.leaflet-tooltip-right {
+	margin-left: 6px;
+}
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	top: 50%;
+	margin-top: -6px;
+	}
+.leaflet-tooltip-left:before {
+	right: 0;
+	margin-right: -12px;
+	border-left-color: #fff;
+	}
+.leaflet-tooltip-right:before {
+	left: 0;
+	margin-left: -12px;
+	border-right-color: #fff;
+	}
+
+/* Printing */
+
+@media print {
+	/* Prevent printers from removing background-images of controls. */
+	.leaflet-control {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+		}
+	}
+
+
+/* Layout: one reading column; timeline and map break out to a wide frame, like plates in an album */
+:root {
+  --bg: #eef2f1;
+  --surface: #ffffff;
+  --ink: #17252b;
+  --muted: #56676c;
+  --line: #d3dcdb;
+  --accent: #1d7c83;
+  --accent-ink: #0f5359;
+  --accent-soft: #dcefef;
+  --dispute: #b06f12;
+  --dispute-soft: #fbf0df;
+  --display: "PT Serif Caption", "PT Serif", Georgia, "Times New Roman", serif;
+  --serif: "PT Serif", Georgia, "Times New Roman", serif;
+  --sans: "PT Sans", "Segoe UI", Arial, sans-serif;
+  --mono: "PT Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1619; --surface: #152126; --ink: #e4eded; --muted: #9db0b2; --line: #2a3b40;
+    --accent: #52b8be; --accent-ink: #8fd6da; --accent-soft: #173a3d;
+    --dispute: #e3a74f; --dispute-soft: #33261a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1619; --surface: #152126; --ink: #e4eded; --muted: #9db0b2; --line: #2a3b40;
+  --accent: #52b8be; --accent-ink: #8fd6da; --accent-soft: #173a3d;
+  --dispute: #e3a74f; --dispute-soft: #33261a; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+.tl-timeline, .tl-timeline *, .leaflet-container, .leaflet-container * { box-sizing: content-box; }
+body { background: var(--bg); color: var(--ink); font: 17px/1.6 var(--sans); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
+.col { max-width: 760px; }
+a { color: var(--accent-ink); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; line-height: 1.15; margin: 0; }
+p { margin: 0; }
+
+header.top { padding-block: 44px 28px; border-bottom: 1px solid var(--line); }
+.eyebrow { font: 700 13px/1.3 var(--sans); letter-spacing: .09em; text-transform: uppercase; color: var(--accent-ink); }
+header.top h1 { font-size: clamp(34px, 6vw, 58px); margin-top: 10px; }
+header.top .lede { margin-top: 14px; font: 19px/1.55 var(--serif); color: var(--muted); max-width: 680px; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 22px; font-size: 15px; color: var(--muted); }
+.facts b { font: 700 22px/1 var(--display); color: var(--ink); margin-right: 6px; font-variant-numeric: tabular-nums; }
+
+nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 1000; background: var(--bg);
+  border-bottom: 1px solid var(--line); }
+nav.tabs .wrap { display: flex; gap: 4px; overflow-x: auto; padding-block: 8px; }
+nav.tabs a { flex: none; text-decoration: none; color: var(--muted); font-size: 15px; padding: 6px 12px; border-radius: 6px; }
+nav.tabs a:hover { color: var(--ink); background: var(--accent-soft); }
+
+section { padding-block: 44px 12px; scroll-margin-top: 56px; }
+section > .wrap > h2 { font-size: clamp(26px, 3.6vw, 34px); }
+.intro { margin-top: 10px; color: var(--muted); max-width: 720px; }
+
+.plate { margin-top: 22px; background: #fbfbf9; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+#timeline { height: 640px; }
+@media (max-width: 640px) { #timeline { height: 560px; } }
+
+/* TimelineJS adjustments */
+.tl-timeline { font-family: var(--sans) !important; }
+.tl-timeline h2.tl-headline, .tl-timeline h2.tl-headline-title, .tl-timeline h3, .tl-timeline .tl-headline-date { font-family: var(--display) !important; text-transform: none !important; letter-spacing: 0 !important; }
+.tl-timeline h2.tl-headline-title { font-size: 38px !important; }
+.tl-timeline p, .tl-timeline td, .tl-timeline th { font-family: var(--sans) !important; }
+.tl-timeline .derekkoz { font-style: italic; color: #5f6d70; font-size: 14px; }
+.tl-timeline .dau-blok { background: #fbf0df; border: 1px solid #e8c48e; border-radius: 6px; padding: 10px 14px; }
+.tl-timeline table.dau { border-collapse: collapse; margin: 4px 0 10px; font-size: 15px; }
+.tl-timeline table.dau th, .tl-timeline table.dau td { border: 1px solid #d9a85f; padding: 4px 10px; color: #222; }
+.tl-timeline table.dau th { background: #f1d3a3; }
+.tl-timeline .qorytyndy { background: #e6f2f2; border-left: 4px solid #1d7c83; padding: 6px 10px; color: #222; }
+
+/* Map */
+.mapgrid { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 0; }
+#map { height: 520px; background: #cfe0e3; }
+.mapside { padding: 18px; border-left: 1px solid var(--line); background: var(--surface); color: var(--ink); display: flex; flex-direction: column; gap: 14px; font-size: 15px; }
+.mapside h3 { font-size: 19px; }
+.legend { display: grid; gap: 6px; }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.sw { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.25); flex: none; }
+.ln { width: 22px; height: 0; border-top: 3px solid; flex: none; }
+.dist { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.dist td { padding: 5px 0; border-bottom: 1px solid var(--line); }
+.dist td:last-child { text-align: right; font-weight: 700; white-space: nowrap; padding-left: 10px; }
+.formula { font: 13.5px/1.5 var(--mono); color: var(--muted); }
+@media (max-width: 820px) { .mapgrid { grid-template-columns: 1fr; } .mapside { border-left: 0; border-top: 1px solid var(--line); } #map { height: 420px; } }
+.leaflet-popup-content { font: 14px/1.45 var(--sans); color: #17252b; margin: 12px 14px; }
+.leaflet-popup-content h4 { font: 18px/1.2 var(--display); margin: 0 0 2px; }
+.leaflet-popup-content .yrs { font-weight: 700; color: #0f5359; }
+.leaflet-popup-content img { display: block; width: 100%; margin: 8px 0 4px; border-radius: 2px; }
+.leaflet-popup-content .src { font-size: 12px; font-style: italic; color: #5f6d70; }
+.leaflet-container a.leaflet-popup-close-button { color: #555; }
+
+/* Date disputes */
+.disputes { margin-top: 24px; display: grid; gap: 18px; }
+.dispute { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; }
+.dispute h3 { font-size: 21px; }
+.dispute .meta { margin-top: 4px; font-size: 14px; color: var(--muted); }
+.meta .gap { color: var(--dispute); font-weight: 700; }
+.scale { position: relative; margin: 30px 12px 8px; height: 120px; }
+.scale .rail { position: absolute; left: 0; right: 0; top: 22px; height: 6px; border-radius: 3px; background: var(--line); }
+.scale .pt { position: absolute; top: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; width: 160px; }
+.scale .dot { display: grid; place-items: center; border-radius: 50%; color: #fff; font: 700 13px var(--sans); background: var(--dispute); box-shadow: 0 0 0 3px var(--surface); font-variant-numeric: tabular-nums; }
+.scale .dot.main { background: var(--accent); }
+.scale .who { margin-top: 8px; font-size: 13px; line-height: 1.35; color: var(--muted); text-align: center; }
+.scale .pt { width: 130px; }
+@media (max-width: 600px) {
+  .scale { height: auto !important; margin: 18px 0 6px; display: grid; gap: 10px; }
+  .scale .rail { display: none; }
+  .scale .pt { position: static; transform: none; width: auto; flex-direction: row; align-items: center; gap: 12px; }
+  .scale .dot { margin-top: 0 !important; flex: none; }
+  .scale .who { margin-top: 0; text-align: left; }
+}
+.verdict { margin-top: 10px; padding: 10px 14px; background: var(--accent-soft); border-radius: 4px; font-size: 15.5px; }
+.verdict b { color: var(--accent-ink); }
+
+/* Tables */
+.tablewrap { margin-top: 22px; overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+table.data { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 640px; }
+table.data th { text-align: left; font: 700 13px/1.3 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 12px 14px; border-bottom: 1px solid var(--line); }
+table.data td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.data tr:last-child td { border-bottom: 0; }
+table.data td.d { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--accent-ink); font-weight: 700; }
+.chip { display: inline-block; font-size: 12.5px; padding: 1px 8px; border-radius: 10px; background: var(--accent-soft); color: var(--accent-ink); white-space: nowrap; }
+.chip.dz { background: var(--dispute-soft); color: var(--dispute); }
+.srclist { margin: 18px 0 0; padding-left: 22px; display: grid; gap: 6px; font-size: 15px; }
+.srclist a { word-break: break-all; }
+
+/* Code */
+.codes { margin-top: 22px; display: grid; gap: 10px; }
+details.code { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+details.code summary { cursor: pointer; padding: 12px 16px; display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; }
+details.code summary .mono { font: 700 15px var(--mono); color: var(--accent-ink); }
+details.code summary span:last-child { color: var(--muted); font-size: 15px; }
+details.code pre { margin: 0; padding: 14px 16px; border-top: 1px solid var(--line); overflow-x: auto; font: 13px/1.5 var(--mono); max-height: 520px; }
+
+/* Media */
+.media { margin-top: 22px; display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 22px; align-items: start; }
+.media video { width: 100%; max-width: 100%; border-radius: 4px; border: 1px solid var(--line); background: #000; }
+.qr { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px; text-align: center; font-size: 14px; color: var(--muted); }
+.qr img { background: #fff; padding: 6px; border-radius: 4px; }
+@media (max-width: 700px) { .media { grid-template-columns: 1fr; } .qr { max-width: 260px; } }
+
+footer { margin-top: 48px; padding-block: 26px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+html { scroll-behavior: smooth; }
+</style>
+
+
+<style>body{margin:0} img{max-width:100%}</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">«Өлкемнің цифрлық шежіресі» · практикалық жұмыс</p>
+    <h1>Форт №1-ден Қазалы қаласына дейін</h1>
+    <p class="lede">Қазалының құрылу шежіресі, 1847–1906: Райым бекінісінен уездік қалаға және темір жол торабына дейінгі жол. Бір оқиғаға әр дереккөз берген даталар қатар салыстырылады.</p>
+    <div class="facts">
+      <span><b>19</b>оқиға</span>
+      <span><b>14</b>дереккөз</span>
+      <span><b>3</b>«дата дауы»</span>
+      <span><b>≈44,5</b>км Райым – Қазалы</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Бөлімдер">
+  <div class="wrap">
+    <a href="#xronologiya">Хронология</a>
+    <a href="#karta">Карта</a>
+    <a href="#data-dauy">Дата дауы</a>
+    <a href="#derekter">Деректер</a>
+    <a href="#kod">Python коды</a>
+    <a href="#beine">Бейне және QR</a>
+  </div>
+</nav>
+
+<main>
+  <section id="xronologiya">
+    <div class="wrap">
+      <h2>Интерактивті хронология</h2>
+      <p class="intro">Слайдтарды көрсеткілермен немесе төменгі уақыт шкаласы арқылы ауыстырыңыз. Оқиғалар бес топқа бөлінген: Райым кезеңі, Форт №1 кезеңі, Қала кезеңі, Темір жол кезеңі және Дата дауы.</p>
+      <div class="plate"><div id="timeline"></div></div>
+    </div>
+  </section>
+
+  <section id="karta">
+    <div class="wrap">
+      <h2>Сырдария шебі бекіністерінің картасы</h2>
+      <p class="intro">Белгіні басқанда нысанның жылдары, сипаттамасы, суреті және дереккөзі ашылады. Қызыл үзік сызық – 1855 жылы Райым гарнизонының №1 фортқа көшу бағыты.</p>
+      <div class="plate mapgrid">
+        <div id="map" role="region" aria-label="Бекіністер картасы"></div>
+        <aside class="mapside">
+          <h3>Шартты белгілер</h3>
+          <div class="legend">
+            <span><i class="sw" style="background:#7b8a8c"></i>Райым бекінісі (1847–1855)</span>
+            <span><i class="sw" style="background:#c23b2b"></i>№1 форт – Қазалы (1853)</span>
+            <span><i class="sw" style="background:#1f4e79"></i>Шептің басқа бекіністері</span>
+            <span><i class="ln" style="border-color:#c23b2b;border-top-style:dashed"></i>Гарнизонның көшуі (1855)</span>
+            <span><i class="ln" style="border-color:#1f4e79"></i>Сырдария бекініс шебі</span>
+          </div>
+          <h3>Арақашықтық</h3>
+          <table class="dist">
+            <tr><td>Райым – Қазалы</td><td>44,5 км</td></tr>
+            <tr><td>Қазалы – Қармақшы (№2 форт)</td><td>157,9 км</td></tr>
+            <tr><td>Қазалы – Перовск (Ақмешіт)</td><td>285,9 км</td></tr>
+          </table>
+          <p class="formula">Гаверсинус формуласы, R = 6371 км:<br>d = 2R·arcsin√(sin²(Δφ/2) + cosφ₁·cosφ₂·sin²(Δλ/2))</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="data-dauy">
+    <div class="wrap">
+      <h2>«Дата дауы»: дереккөздер қай жылды көрсетеді?</h2>
+      <p class="intro">Бір оқиғаға әр дереккөз берген жылдар Python (pandas) бағдарламасы арқылы салыстырылды. Шеңбердің өлшемі сол жылды көрсеткен дереккөздер санына байланысты; көк шеңбер – дереккөздердің көпшілігі қолдаған жыл.</p>
+      <div class="disputes" id="disputes"></div>
+    </div>
+  </section>
+
+  <section id="derekter">
+    <div class="wrap">
+      <h2>Оқиғалар кестесі</h2>
+      <p class="intro">Хронология осы кестеден автоматты түрде жасалады. Әр оқиғаның дереккөзі мен сілтемесі көрсетілген.</p>
+      <div class="tablewrap">
+        <table class="data">
+          <thead><tr><th>Дата</th><th>Оқиға</th><th>Кезең</th><th>Дереккөз</th></tr></thead>
+          <tbody id="events"></tbody>
+        </table>
+      </div>
+      <h3 style="margin-top:34px;font-size:22px">Дереккөздер</h3>
+      <ol class="srclist" id="sources"></ol>
+    </div>
+  </section>
+
+  <section id="kod">
+    <div class="wrap">
+      <h2>Python коды</h2>
+      <p class="intro">Төрт бағдарлама бір деректер кестесінен (oqigalar.xlsx) барлық нәтижені жасайды. Кодты ашу үшін файл атауын басыңыз.</p>
+      <div class="codes">
+<details class="code"><summary><span class="mono">01_data_dauy.py</span><span>«Дата дауы» кестесі мен диаграммасы (pandas, matplotlib)</span></summary><pre><code># -*- coding: utf-8 -*-
+&quot;&quot;&quot;
+1-қадам. «Дата дауы» кестесі.
+
+Бір оқиғаға (мысалы, Қазалының құрылған жылына) әр дереккөз қандай жыл
+бергенін салыстырып, жиынтық кесте мен диаграмма жасайды.
+
+Іске қосу:  python3 01_data_dauy.py
+Қажетті кітапханалар:  pandas, openpyxl, matplotlib
+&quot;&quot;&quot;
+from pathlib import Path
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+PAPKA = Path(__file__).resolve().parent.parent
+DEREKTER = PAPKA / &quot;1_Деректер&quot; / &quot;oqigalar.xlsx&quot;
+NATIZHE = PAPKA / &quot;5_Нәтижелер&quot;
+NATIZHE.mkdir(exist_ok=True)
+
+# 1. Деректерді оқу
+df = pd.read_excel(DEREKTER, sheet_name=&quot;Дата_дауы&quot;)
+print(&quot;Барлық жазба саны:&quot;, len(df))
+
+# 2. Жиынтық кесте: жолда – мәселе, бағанда – дереккөз, ұяшықта – көрсетілген жыл
+zhiyntyq = df.pivot_table(index=&quot;Мәселе&quot;, columns=&quot;Дереккөз&quot;,
+                          values=&quot;Көрсетілген жыл&quot;, aggfunc=&quot;first&quot;)
+
+# 3. Әр мәселе бойынша қысқаша статистика
+stat = df.groupby(&quot;Мәселе&quot;)[&quot;Көрсетілген жыл&quot;].agg(
+    sany=&quot;count&quot;,
+    erte=&quot;min&quot;,
+    kesh=&quot;max&quot;,
+    zhii=lambda s: s.mode().iloc[0],
+)
+stat.columns = [&quot;Дереккөз саны&quot;, &quot;Ең ерте жыл&quot;, &quot;Ең кеш жыл&quot;, &quot;Жиі кездесетін жыл&quot;]
+stat[&quot;Айырма (жыл)&quot;] = stat[&quot;Ең кеш жыл&quot;] - stat[&quot;Ең ерте жыл&quot;]
+
+
+# 4. «Дата дауы» блогы: әр жылдың қасына оны көрсеткен дереккөздерді жазу
+def zhyldar_men_derekkozder(top):
+    zholdar = []
+    for zhyl, bolik in top.groupby(&quot;Көрсетілген жыл&quot;):
+        zholdar.append(f&quot;{zhyl} – {&#x27;, &#x27;.join(bolik[&#x27;Дереккөз&#x27;])}&quot;)
+    return &quot; | &quot;.join(zholdar)
+
+
+blok = {masele: zhyldar_men_derekkozder(top) for masele, top in df.groupby(&quot;Мәселе&quot;)}
+stat[&quot;Дата дауы&quot;] = pd.Series(blok)
+
+# Мәселелерді кестедегі ретімен орналастыру
+stat = stat.reindex(list(dict.fromkeys(df[&quot;Мәселе&quot;])))
+
+print(&quot;\n«ДАТА ДАУЫ» – ҚЫСҚАША СТАТИСТИКА&quot;)
+print(stat[[&quot;Дереккөз саны&quot;, &quot;Ең ерте жыл&quot;, &quot;Ең кеш жыл&quot;,
+            &quot;Жиі кездесетін жыл&quot;, &quot;Айырма (жыл)&quot;]].to_string())
+
+# 5. Нәтижені Excel-ге сақтау
+with pd.ExcelWriter(NATIZHE / &quot;data_dauy_natizhe.xlsx&quot;, engine=&quot;openpyxl&quot;) as w:
+    stat.to_excel(w, sheet_name=&quot;Статистика&quot;)
+    zhiyntyq.to_excel(w, sheet_name=&quot;Жиынтық_кесте&quot;)
+    df.to_excel(w, sheet_name=&quot;Бастапқы_деректер&quot;, index=False)
+
+# 6. Диаграмма: әр мәселе – жеке сызба, нүктелер – дереккөздер берген жылдар
+maseleler = list(stat.index)
+tus = [&quot;#1f4e79&quot;, &quot;#c0504d&quot;, &quot;#4f9a3a&quot;, &quot;#8064a2&quot;, &quot;#f79646&quot;, &quot;#4bacc6&quot;]
+fig, axes = plt.subplots(len(maseleler), 1, figsize=(11, 2.4 * len(maseleler)))
+
+for ax, masele in zip(axes, maseleler):
+    top = df[df[&quot;Мәселе&quot;] == masele]
+    erte, kesh = top[&quot;Көрсетілген жыл&quot;].min(), top[&quot;Көрсетілген жыл&quot;].max()
+    ax.hlines(0, erte, kesh, color=&quot;#cccccc&quot;, linewidth=8, zorder=1)
+    for j, (zhyl, bolik) in enumerate(top.groupby(&quot;Көрсетілген жыл&quot;)):
+        ax.scatter(zhyl, 0, s=1300 + 300 * len(bolik), color=tus[j % len(tus)],
+                   zorder=3, edgecolor=&quot;white&quot;, linewidth=2)
+        ax.annotate(str(zhyl), (zhyl, 0), ha=&quot;center&quot;, va=&quot;center&quot;,
+                    color=&quot;white&quot;, fontsize=10, fontweight=&quot;bold&quot;, zorder=4)
+        ax.annotate(&quot;\n&quot;.join(bolik[&quot;Дереккөз&quot;]), (zhyl, -0.45), ha=&quot;center&quot;,
+                    va=&quot;top&quot;, fontsize=8.5, color=&quot;#333333&quot;)
+    ax.set_title(f&quot;{masele}  (айырма: {kesh - erte} жыл)&quot;, fontsize=11,
+                 fontweight=&quot;bold&quot;, loc=&quot;left&quot;)
+    ax.set_xlim(erte - 1.2, kesh + 1.2)
+    ax.set_ylim(-1.3, 0.5)
+    ax.set_yticks([])
+    ax.xaxis.set_major_locator(plt.MultipleLocator(1))
+    ax.tick_params(axis=&quot;x&quot;, labelsize=9)
+    for jaq in [&quot;top&quot;, &quot;right&quot;, &quot;left&quot;]:
+        ax.spines[jaq].set_visible(False)
+
+fig.suptitle(&quot;«Дата дауы»: бір оқиғаға әр дереккөз берген даталар&quot;,
+             fontsize=14, fontweight=&quot;bold&quot;)
+plt.tight_layout()
+plt.savefig(NATIZHE / &quot;data_dauy_diagramma.png&quot;, dpi=200)
+print(&quot;\nСақталды:&quot;, NATIZHE / &quot;data_dauy_natizhe.xlsx&quot;)
+print(&quot;Сақталды:&quot;, NATIZHE / &quot;data_dauy_diagramma.png&quot;)
+</code></pre></details>
+<details class="code"><summary><span class="mono">02_xronologiya.py</span><span>Кестеден TimelineJS хронологиясын жасау</span></summary><pre><code># -*- coding: utf-8 -*-
+&quot;&quot;&quot;
+2-қадам. Интерактивті хронологиялық желі (TimelineJS).
+
+Excel кестесіндегі оқиғаларды TimelineJS форматына (JSON) айналдырып,
+браузерде ашылатын xronologiya.html файлын жасайды. Әр «Дата дауы»
+мәселесі үшін хронологияға бөлек слайд қосылады: онда бір оқиғаның
+әртүрлі даталары дереккөздерімен қатар тұрады және авторлық қорытынды беріледі.
+
+Іске қосу:  python3 02_xronologiya.py
+&quot;&quot;&quot;
+import json
+from pathlib import Path
+
+import pandas as pd
+
+PAPKA = Path(__file__).resolve().parent.parent
+DEREKTER = PAPKA / &quot;1_Деректер&quot; / &quot;oqigalar.xlsx&quot;
+SHYGYS = PAPKA / &quot;3_Интерактивті_хронология&quot;
+
+oqigalar = pd.read_excel(DEREKTER, sheet_name=&quot;Оқиғалар&quot;)
+daular = pd.read_excel(DEREKTER, sheet_name=&quot;Дата_дауы&quot;)
+
+# Әр «дата дауы» бойынша авторлық қорытынды (зерттеу нәтижесі)
+QORYTYNDY = {
+    &quot;Қазалының (№1 форттың) негізі қаланған жылы&quot;:
+        &quot;1853 жыл – бекіністің іс жүзінде салынған жылы (Ақмешіт жорығы кезінде, күзде). &quot;
+        &quot;1854 жыл – Сырдария шебі ресімделіп, бекініс «№1 форт» ретінде ресми тіркелген жыл. &quot;
+        &quot;1851 жыл – Райым тұрғындарының қоныс аударуымен байланысты, оны басқа дереккөздер растамайды. &quot;
+        &quot;Қорытынды: Қазалының құрылған жылы – 1853.&quot;,
+    &quot;Райымнан №1 фортқа көшу (Райымның таратылуы)&quot;:
+        &quot;1854 жылы Райымның ресми таратылуы туралы шешім, ал 1855 жылы гарнизонның &quot;
+        &quot;№1 фортқа толық көшірілуі айтылады. Екі дата бір процестің екі кезеңін білдіреді.&quot;,
+    &quot;Қазалы вокзалының салынған жылы&quot;:
+        &quot;Ғимарат 1905 жылы салынған (ресми дерек), ал 1906 жылғы 1 қаңтарда Орынбор–Ташкент &quot;
+        &quot;жолы ресми ашылды. Сондықтан кейбір дереккөздер вокзалды 1906 жылмен байланыстырады.&quot;,
+}
+
+
+def bos_emes(x):
+    &quot;&quot;&quot;Ұяшық бос емес пе екенін тексереді.&quot;&quot;&quot;
+    return pd.notna(x) and str(x).strip() != &quot;&quot;
+
+
+def kun(zhyl, ai=None, kun_=None):
+    d = {&quot;year&quot;: int(zhyl)}
+    if bos_emes(ai):
+        d[&quot;month&quot;] = int(ai)
+    if bos_emes(kun_):
+        d[&quot;day&quot;] = int(kun_)
+    return d
+
+
+# 1. Тақырыптық слайд
+data = {
+    &quot;title&quot;: {
+        &quot;media&quot;: {&quot;url&quot;: &quot;media/fort1_settlement.jpg&quot;,
+                  &quot;caption&quot;: &quot;Казалинск бекінісіндегі (№1 форт) қоныс, 1865–1872 жж.&quot;,
+                  &quot;credit&quot;: &quot;«Түркістан альбомы» / АҚШ Конгресс кітапханасы&quot;},
+        &quot;text&quot;: {&quot;headline&quot;: &quot;Форт №1-ден Қазалы қаласына дейін&quot;,
+                 &quot;text&quot;: &quot;&lt;p&gt;Қаланың құрылу шежіресі (1847–1906): әскери бекіністен уездік &quot;
+                         &quot;қалаға дейінгі жол және дереккөздердегі «Дата дауы».&lt;/p&gt;&quot;},
+    },
+    &quot;events&quot;: [],
+}
+
+# 2. Оқиғалар слайдтары
+for _, r in oqigalar.iterrows():
+    slaid = {
+        &quot;start_date&quot;: kun(r[&quot;Жыл&quot;], r[&quot;Ай&quot;], r[&quot;Күн&quot;]),
+        &quot;display_date&quot;: str(r[&quot;Көрсетілетін күн&quot;]),
+        &quot;text&quot;: {&quot;headline&quot;: r[&quot;Оқиға&quot;],
+                 &quot;text&quot;: f&quot;&lt;p&gt;{r[&#x27;Сипаттама&#x27;]}&lt;/p&gt;&lt;p class=&#x27;derekkoz&#x27;&gt;Дереккөз: {r[&#x27;Дереккөз&#x27;]}&lt;/p&gt;&quot;},
+        &quot;group&quot;: r[&quot;Топ&quot;],
+    }
+    if bos_emes(r[&quot;Соңғы жыл&quot;]):
+        slaid[&quot;end_date&quot;] = kun(r[&quot;Соңғы жыл&quot;])
+    if bos_emes(r[&quot;Сурет (жергілікті)&quot;]):
+        slaid[&quot;media&quot;] = {&quot;url&quot;: r[&quot;Сурет (жергілікті)&quot;], &quot;caption&quot;: r[&quot;Сурет атауы&quot;],
+                          &quot;credit&quot;: r[&quot;Сурет авторы&quot;]}
+    data[&quot;events&quot;].append(slaid)
+
+# 3. «Дата дауы» слайдтары (Python өзі құрастырады)
+for masele, top in daular.groupby(&quot;Мәселе&quot;, sort=False):
+    zholdar = &quot;&quot;.join(
+        f&quot;&lt;tr&gt;&lt;td&gt;&lt;b&gt;{zh}&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{&#x27;, &#x27;.join(t[&#x27;Дереккөз&#x27;])}&lt;/td&gt;&lt;/tr&gt;&quot;
+        for zh, t in top.groupby(&quot;Көрсетілген жыл&quot;)
+    )
+    keste = (f&quot;&lt;div class=&#x27;dau-blok&#x27;&gt;&lt;table class=&#x27;dau&#x27;&gt;&lt;tr&gt;&lt;th&gt;Жыл&lt;/th&gt;&lt;th&gt;Дереккөз&lt;/th&gt;&lt;/tr&gt;{zholdar}&lt;/table&gt;&quot;
+             f&quot;&lt;p class=&#x27;qorytyndy&#x27;&gt;&lt;b&gt;Авторлық қорытынды:&lt;/b&gt; {QORYTYNDY.get(masele, &#x27;&#x27;)}&lt;/p&gt;&lt;/div&gt;&quot;)
+    data[&quot;events&quot;].append({
+        &quot;start_date&quot;: {&quot;year&quot;: int(top[&quot;Көрсетілген жыл&quot;].min())},
+        &quot;end_date&quot;: {&quot;year&quot;: int(top[&quot;Көрсетілген жыл&quot;].max())},
+        &quot;display_date&quot;: f&quot;{top[&#x27;Көрсетілген жыл&#x27;].min()}–{top[&#x27;Көрсетілген жыл&#x27;].max()}&quot;,
+        &quot;text&quot;: {&quot;headline&quot;: f&quot;ДАТА ДАУЫ: {masele}&quot;, &quot;text&quot;: keste},
+        &quot;group&quot;: &quot;Дата дауы&quot;,
+    })
+
+# 4. JSON және HTML файлдарын сақтау
+(SHYGYS / &quot;timeline.json&quot;).write_text(json.dumps(data, ensure_ascii=False, indent=2),
+                                       encoding=&quot;utf-8&quot;)
+
+HTML = &quot;&quot;&quot;&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;kk&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;Форт №1-ден Қазалы қаласына дейін – хронология&lt;/title&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css&quot;&gt;
+&lt;script src=&quot;https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
+  html, body {{ height: 100%; margin: 0; font-family: Arial, sans-serif; }}
+  #timeline-embed {{ width: 100%; height: 100vh; }}
+  table.dau {{ border-collapse: collapse; margin: 8px 0; font-size: 15px; }}
+  table.dau th, table.dau td {{ border: 1px solid #c97a1f; padding: 4px 10px; }}
+  table.dau th {{ background: #f3c58a; }}
+  .qorytyndy {{ background: #e8f1fa; border-left: 4px solid #1f4e79; padding: 6px 10px; }}
+  .derekkoz {{ font-style: italic; color: #555; font-size: 13px; }}
+  .dau-blok {{ background: #fff4e5; border: 2px solid #f3c58a; border-radius: 8px; padding: 10px 14px; }}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;timeline-embed&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var data = {data};
+  window.timeline = new TL.Timeline(&#x27;timeline-embed&#x27;, data, {{
+    language: &#x27;ru&#x27;, timenav_height_percentage: 30, scale_factor: 1.5,
+    initial_zoom: 2, hash_bookmark: true
+  }});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&quot;&quot;&quot;
+(SHYGYS / &quot;xronologiya.html&quot;).write_text(
+    HTML.format(data=json.dumps(data, ensure_ascii=False)), encoding=&quot;utf-8&quot;)
+
+print(&quot;Оқиға слайдтары:&quot;, len(oqigalar))
+print(&quot;«Дата дауы» слайдтары:&quot;, daular[&quot;Мәселе&quot;].nunique())
+print(&quot;Сақталды:&quot;, SHYGYS / &quot;xronologiya.html&quot;)
+</code></pre></details>
+<details class="code"><summary><span class="mono">03_karta.py</span><span>Бекіністер картасы және гаверсинус бойынша қашықтық (folium)</span></summary><pre><code># -*- coding: utf-8 -*-
+&quot;&quot;&quot;
+3-қадам. Сырдария шебі бекіністерінің цифрлық картасы (folium).
+
+Әр нысан үшін картада: орны, қысқаша сипаттамасы, фотосы және дереккөзі.
+Сонымен қатар Райым мен Қазалы арасындағы қашықтық есептеледі.
+
+Іске қосу:  python3 03_karta.py
+Қажетті кітапхана:  folium
+&quot;&quot;&quot;
+import math
+from pathlib import Path
+
+import folium
+
+PAPKA = Path(__file__).resolve().parent.parent
+SHYGYS = PAPKA / &quot;4_Карта&quot;
+MEDIA = &quot;../3_Интерактивті_хронология/media/&quot;
+
+# Нысандар: атауы, ендік, бойлық, жылдары, сипаттама, сурет, дереккөз, түсі
+NYSANDAR = [
+    (&quot;Райым бекінісі&quot;, 46.0717, 61.7282, &quot;1847–1855&quot;,
+     &quot;Сырдария сағасындағы алғашқы бекініс. Арал флотилиясының кемелері осында құрастырылды. &quot;
+     &quot;1855 жылы гарнизон №1 фортқа көшірілді.&quot;,
+     &quot;raim_shevchenko.jpg&quot;, &quot;Fort Raim (A. Morrison, 2020); Welcome.kz&quot;, &quot;gray&quot;),
+    (&quot;№1 форт – Қазалы (Казалинск)&quot;, 45.7667, 62.1000, &quot;1853 – қазіргі уақыт&quot;,
+     &quot;1853 жылы салынған бекініс. 1867 жылы қала мәртебесін алып, Казалинск уезінің &quot;
+     &quot;орталығы болды. Арал флотилиясының айлағы мен шеберханалары осында орналасты.&quot;,
+     &quot;fort1_settlement.jpg&quot;, &quot;РЭМ каталогы; Брокгауз–Ефрон, 1894&quot;, &quot;red&quot;),
+    (&quot;№2 форт – Қармақшы (қазіргі Жосалы)&quot;, 45.4893, 64.0915, &quot;1850 жылдар&quot;,
+     &quot;Сырдария шебіндегі келесі бекініс, Қазалы мен Перовск арасындағы аралық пункт.&quot;,
+     None, &quot;A. Morrison, 2020&quot;, &quot;darkblue&quot;),
+    (&quot;Ақмешіт – Перовск форты (қазіргі Қызылорда)&quot;, 44.8500, 65.5167, &quot;1853&quot;,
+     &quot;Қоқан бекінісі Ақмешітті 1853 жылы В.А. Перовскийдің жасағы алды. Шабуылға «Перовский» &quot;
+     &quot;пароходы қатысты. Кейін Перовск форты деп аталды.&quot;,
+     None, &quot;Әскери энциклопедия (Сытин), «Бутаков» мақаласы&quot;, &quot;darkblue&quot;),
+]
+
+
+def qashyqtyq_km(lat1, lon1, lat2, lon2):
+    &quot;&quot;&quot;Екі нүкте арасындағы қашықтық (гаверсинус формуласы), км.&quot;&quot;&quot;
+    R = 6371
+    f1, f2 = math.radians(lat1), math.radians(lat2)
+    df = math.radians(lat2 - lat1)
+    dl = math.radians(lon2 - lon1)
+    a = math.sin(df / 2) ** 2 + math.cos(f1) * math.cos(f2) * math.sin(dl / 2) ** 2
+    return 2 * R * math.asin(math.sqrt(a))
+
+
+karta = folium.Map(location=[45.6, 63.3], zoom_start=7, tiles=&quot;OpenStreetMap&quot;)
+
+for atau, lat, lon, zhyl, sipat, suret, derek, tus in NYSANDAR:
+    html = f&quot;&lt;h4 style=&#x27;margin:0&#x27;&gt;{atau}&lt;/h4&gt;&lt;b&gt;{zhyl}&lt;/b&gt;&lt;p&gt;{sipat}&lt;/p&gt;&quot;
+    if suret:
+        html += f&quot;&lt;img src=&#x27;{MEDIA}{suret}&#x27; width=&#x27;260&#x27;&gt;&lt;br&gt;&quot;
+    html += f&quot;&lt;i style=&#x27;font-size:11px&#x27;&gt;Дереккөз: {derek}&lt;/i&gt;&quot;
+    folium.Marker(
+        [lat, lon],
+        popup=folium.Popup(html, max_width=290),
+        tooltip=f&quot;{atau} ({zhyl})&quot;,
+        icon=folium.Icon(color=tus, icon=&quot;flag&quot;),
+    ).add_to(karta)
+
+# Райымнан №1 фортқа көшу бағыты (1855)
+raim, qazaly = NYSANDAR[0], NYSANDAR[1]
+km = qashyqtyq_km(raim[1], raim[2], qazaly[1], qazaly[2])
+folium.PolyLine([[raim[1], raim[2]], [qazaly[1], qazaly[2]]], color=&quot;red&quot;, weight=4,
+                dash_array=&quot;8&quot;, tooltip=f&quot;1855: гарнизонның көшуі, ≈{km:.0f} км&quot;).add_to(karta)
+
+# Сырдария шебі: Қазалы – Қармақшы – Перовск
+folium.PolyLine([[n[1], n[2]] for n in NYSANDAR[1:]], color=&quot;#1f4e79&quot;, weight=3,
+                tooltip=&quot;Сырдария бекініс шебі&quot;).add_to(karta)
+
+# Шартты белгілер
+legend = &quot;&quot;&quot;
+&lt;div style=&quot;position: fixed; bottom: 30px; left: 30px; z-index: 9999; background: white;
+     padding: 10px 14px; border: 2px solid #1f4e79; border-radius: 6px; font: 13px Arial;&quot;&gt;
+&lt;b&gt;Сырдария шебінің бекіністері (1847–1867)&lt;/b&gt;&lt;br&gt;
+&lt;span style=&quot;color:gray&quot;&gt;&amp;#9873;&lt;/span&gt; Райым бекінісі (1847–1855)&lt;br&gt;
+&lt;span style=&quot;color:red&quot;&gt;&amp;#9873;&lt;/span&gt; №1 форт – Қазалы (1853)&lt;br&gt;
+&lt;span style=&quot;color:#1f4e79&quot;&gt;&amp;#9873;&lt;/span&gt; Шептің басқа бекіністері&lt;br&gt;
+&lt;span style=&quot;color:red&quot;&gt;- - -&lt;/span&gt; Гарнизонның көшуі (1855)&lt;br&gt;
+&lt;span style=&quot;color:#1f4e79&quot;&gt;——&lt;/span&gt; Сырдария бекініс шебі
+&lt;/div&gt;&quot;&quot;&quot;
+karta.get_root().html.add_child(folium.Element(legend))
+
+SHYGYS.mkdir(exist_ok=True)
+karta.save(SHYGYS / &quot;bekinister_kartasy.html&quot;)
+
+print(&quot;Нысандар саны:&quot;, len(NYSANDAR))
+print(f&quot;Райым – Қазалы арақашықтығы: {km:.1f} км&quot;)
+for n in NYSANDAR[2:]:
+    print(f&quot;Қазалы – {n[0]}: {qashyqtyq_km(qazaly[1], qazaly[2], n[1], n[2]):.1f} км&quot;)
+print(&quot;Сақталды:&quot;, SHYGYS / &quot;bekinister_kartasy.html&quot;)
+</code></pre></details>
+<details class="code"><summary><span class="mono">04_qr_kod.py</span><span>Стендке арналған QR-код (qrcode)</span></summary><pre><code># -*- coding: utf-8 -*-
+&quot;&quot;&quot;
+4-қадам. Стендке арналған QR-код.
+
+1-нұсқа: QR-кодқа зерттеудің қысқаша нәтижесі жазылады (интернетсіз оқылады).
+2-нұсқа: хронология интернетке жарияланған соң, оның сілтемесін SILTEME
+айнымалысына жазып, скриптті қайта іске қосу жеткілікті.
+
+Іске қосу:  python3 04_qr_kod.py
+Қажетті кітапхана:  qrcode[pil]
+&quot;&quot;&quot;
+from pathlib import Path
+
+import qrcode
+from PIL import Image, ImageDraw, ImageFont
+
+PAPKA = Path(__file__).resolve().parent.parent
+NATIZHE = PAPKA / &quot;5_Нәтижелер&quot;
+
+SILTEME = &quot;https://kani4real.github.io/qazaly-shezhiresi/&quot;  # хронологияның интернеттегі мекенжайы
+
+MATIN = (
+    &quot;ҚАЗАЛЫ ШЕЖІРЕСІ (1847–1906)\n&quot;
+    &quot;1847 – Райым бекінісі салынды\n&quot;
+    &quot;1853 – №1 форт (Қазалы) салынды\n&quot;
+    &quot;1854 – Сырдария шебінде ресми тіркелді\n&quot;
+    &quot;1855 – Райым гарнизоны №1 фортқа көшті\n&quot;
+    &quot;1867 – Казалинск қала мәртебесін алды, уезд орталығы болды\n&quot;
+    &quot;1905 – Қазалы вокзалы салынды\n&quot;
+    &quot;Қорытынды: Қазалының құрылған жылы – 1853.&quot;
+)
+
+mazmun = SILTEME if SILTEME else MATIN
+
+qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_M, box_size=10, border=3)
+qr.add_data(mazmun)
+qr.make(fit=True)
+kod = qr.make_image(fill_color=&quot;#1f4e79&quot;, back_color=&quot;white&quot;).convert(&quot;RGB&quot;)
+
+# QR-кодтың астына жазу қосу
+eni, biiktigi = kod.size
+stend = Image.new(&quot;RGB&quot;, (eni, biiktigi + 70), &quot;white&quot;)
+stend.paste(kod, (0, 0))
+draw = ImageDraw.Draw(stend)
+try:
+    font = ImageFont.truetype(&quot;Arial.ttf&quot;, 26)
+except OSError:
+    font = ImageFont.load_default()
+zhazu = &quot;Форт №1-ден Қазалыға дейін&quot;
+w = draw.textlength(zhazu, font=font)
+draw.text(((eni - w) / 2, biiktigi + 15), zhazu, fill=&quot;#1f4e79&quot;, font=font)
+
+NATIZHE.mkdir(exist_ok=True)
+stend.save(NATIZHE / &quot;qr_kod.png&quot;)
+print(&quot;QR-код нұсқасы:&quot;, qr.version, &quot;| таңба саны:&quot;, len(mazmun))
+print(&quot;Сақталды:&quot;, NATIZHE / &quot;qr_kod.png&quot;)
+</code></pre></details>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="beine">
+    <div class="wrap">
+      <h2>Бейнежазба және QR-код</h2>
+      <p class="intro">56 секундтық бейнежазба хронология мен картаның негізгі слайдтарын көрсетеді. QR-код осы сайтқа апарады: оны стендке басып шығаруға болады.</p>
+      <div class="media">
+        <video controls preload="metadata" poster="media/fort1_settlement.jpg" src="video.mp4"></video>
+        <div class="qr"><img src="qr.png" alt="Сайтқа апаратын QR-код" width="190" height="210"><p>Смартфон камерасымен сканерлеңіз<br><span style="font-size:12px;word-break:break-all">kani4real.github.io/qazaly-shezhiresi</span></p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>«Менің шағын Отаным» республикалық интеллектуалдық конкурсы, «Өлкемнің цифрлық шежіресі» номинациясы. Қазалы, 2026.</p>
+    <p style="margin-top:6px">Суреттер: «Түркістан альбомы» (АҚШ Конгресс кітапханасы, қоғамдық игілік), Т.Г. Шевченко (1848), вокзал фотосы – Coopypasted, CC BY-SA 4.0. Карта негізі: © OpenStreetMap авторлары.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@knight-lab/timelinejs@3.9.13/dist/js/timeline.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+const TIMELINE = {"title": {"media": {"url": "media/fort1_settlement.jpg", "caption": "Казалинск бекінісіндегі (№1 форт) қоныс, 1865–1872 жж.", "credit": "«Түркістан альбомы» / АҚШ Конгресс кітапханасы"}, "text": {"headline": "Форт №1-ден Қазалы қаласына дейін", "text": "<p>Қаланың құрылу шежіресі (1847–1906): әскери бекіністен уездік қалаға дейінгі жол және дереккөздердегі «Дата дауы».</p>"}}, "events": [{"start_date": {"year": 1847}, "display_date": "1847", "text": {"headline": "Райым бекінісінің салынуы", "text": "<p>Орынбор әскери губернаторы В.А. Обручевтің бұйрығымен Сырдарияның Арал теңізіне құяр тұсында Райым бекінісі салынды. Құрылысқа 1500-ге жуық солдат пен жұмысшы, қазақ және башқұрт жалдамалылары қатысып, бекініс жыл соңына дейін бітті.</p><p class='derekkoz'>Дереккөз: A. Morrison, 2020; Welcome.kz, 2024</p>"}, "group": "Райым кезеңі", "media": {"url": "media/raim_shevchenko.jpg", "caption": "Райым бекінісі. Сырдария жағасынан көрініс (1848 ж. маусым)", "credit": "Т.Г. Шевченко, 1848 / Wikimedia Commons"}}, {"start_date": {"year": 1848}, "display_date": "1848", "text": {"headline": "Арал теңізін зерттеу экспедициясы", "text": "<p>А.И. Бутаков басқарған экспедиция Райымда құрастырылған кемемен Арал теңізін зерттеуге шықты. Экспедиция құрамында украин ақыны әрі суретшісі Т.Г. Шевченко болды, ол Райым бекінісінің суретін салып қалдырды.</p><p class='derekkoz'>Дереккөз: A. Morrison, 2020; Welcome.kz, 2024; Әскери энциклопедия (Сытин), «Бутаков»</p>"}, "group": "Райым кезеңі", "media": {"url": "media/raim_shevchenko.jpg", "caption": "Райым бекінісі. Сырдария жағасынан көрініс (1848 ж. маусым)", "credit": "Т.Г. Шевченко, 1848 / Wikimedia Commons"}}, {"start_date": {"year": 1851}, "display_date": "1851", "text": {"headline": "Райым тұрғындарының Қазалыға көшуі (дау тудыратын дерек)", "text": "<p>Welcome.kz порталының мәліметінше, 1851 жылы Райым тұрғындарының көпшілігі Қазалыға қоныс аударған. Бұл мерзім басқа дереккөздерде көрсетілген даталардан ерте, сондықтан ол «Дата дауы» кестесіне енгізілді.</p><p class='derekkoz'>Дереккөз: Welcome.kz, 2024</p>"}, "group": "Дата дауы"}, {"start_date": {"year": 1853, "month": 7}, "display_date": "1853 ж. шілде", "text": {"headline": "Ақмешіттің алынуы", "text": "<p>В.А. Перовский бастаған әскери жасақ Қоқан хандығының Ақмешіт бекінісін алды. Шабуылға Арал флотилиясының «Перовский» пароходы қатысты. Ақмешіт кейін Перовск деп аталды (қазіргі Қызылорда).</p><p class='derekkoz'>Дереккөз: Әскери энциклопедия (Сытин), «Бутаков»; A. Morrison, 2020</p>"}, "group": "Форт №1 кезеңі"}, {"start_date": {"year": 1853, "month": 9}, "display_date": "1853 ж. күзі", "text": {"headline": "№1 форттың салынуы", "text": "<p>Перовскийдің бұйрығымен Қазалы шатқалында жаңа әскери бекініс тұрғызылып, ол ресми түрде «Сырдария №1 форты» деп аталды. Қазақ және ресейлік Уикипедия, РЭМ каталогы осы жылды қаланың құрылған жылы деп көрсетеді.</p><p class='derekkoz'>Дереккөз: Ресейлік Уикипедия; Қазақ Уикипедиясы; РЭМ онлайн-каталогы</p>"}, "group": "Форт №1 кезеңі", "media": {"url": "media/fort1_settlement.jpg", "caption": "Казалинск бекінісіндегі (№1 форт) шағын қоныс, 1865–1872 жж.", "credit": "«Түркістан альбомы» / АҚШ Конгресс кітапханасы"}}, {"start_date": {"year": 1854}, "display_date": "1854", "text": {"headline": "Сырдария шебінің ресімделуі", "text": "<p>Брокгауз–Ефрон сөздігі Казалинскіні Сырдария шебі құрылған кезде, 1854 жылы, «№1 форт (Қазалы)» деген атаумен негізі қаланған қала ретінде сипаттайды.</p><p class='derekkoz'>Дереккөз: Брокгауз–Ефрон, 1894</p>"}, "group": "Дата дауы"}, {"start_date": {"year": 1855}, "display_date": "1855", "text": {"headline": "Райым гарнизонының №1 фортқа көшірілуі", "text": "<p>Райым бекінісі ауасы жайсыз әрі тым тығыз орналасқан пункт ретінде тасталып, гарнизон оңтүстік-шығыстағы №1 фортқа көшірілді. Welcome.kz порталы Райымның ресми таратылуын 1854 жылмен байланыстырады.</p><p class='derekkoz'>Дереккөз: A. Morrison, 2020; Welcome.kz, 2024</p>"}, "group": "Форт №1 кезеңі"}, {"start_date": {"year": 1856, "month": 12, "day": 19}, "display_date": "1856 ж. 19–23 желтоқсан", "text": {"headline": "Қазалы бекінісінің қоршалуы", "text": "<p>Жанқожа Нұрмұхамедұлы бастаған көтерілісшілер Қазалы бекінісін қоршап, бекініс маңындағы қоныстанушылар слободкасын қиратты. Сол кезде көтерілісшілер саны 1500-ге жуық болды.</p><p class='derekkoz'>Дереккөз: e-history.kz</p>"}, "group": "Форт №1 кезеңі"}, {"start_date": {"year": 1857, "month": 1, "day": 9}, "display_date": "1857 ж. 9 қаңтар", "text": {"headline": "Арықбалық шайқасы", "text": "<p>Генерал-майор Фитингоф жасағы мен Жанқожа батыр бастаған 5 мыңға жуық көтерілісші арасында шешуші шайқас болды. Көтерілісшілер жеңіліс тапты.</p><p class='derekkoz'>Дереккөз: e-history.kz</p>"}, "group": "Форт №1 кезеңі"}, {"start_date": {"year": 1865}, "display_date": "1865–1872", "text": {"headline": "Арал флотилиясының Қазалыдағы базасы", "text": "<p>«Түркістан альбомына» енген фотосуреттерде Казалинскідегі Арал флотилиясының айлағы мен шеберханалары бейнеленген. Қазақ Уикипедиясы флотилияның негізгі айлағы Қазалыда орналасқанын атап өтеді.</p><p class='derekkoz'>Дереккөз: «Түркістан альбомы», 1865–1872; Қазақ Уикипедиясы</p>"}, "group": "Қала кезеңі", "end_date": {"year": 1872}, "media": {"url": "media/pier.jpg", "caption": "Казалинск. Арал флотилиясының айлағы", "credit": "«Түркістан альбомы» / АҚШ Конгресс кітапханасы"}}, {"start_date": {"year": 1867}, "display_date": "1867", "text": {"headline": "Қала мәртебесі және уездік орталық", "text": "<p>Түркістан генерал-губернаторлығы мен Сырдария облысы құрылды. №1 фортқа қала мәртебесі беріліп, ол Казалинск деп аталды және Казалинск уезінің әкімшілік орталығына айналды.</p><p class='derekkoz'>Дереккөз: Ресейлік Уикипедия; Қазақ Уикипедиясы</p>"}, "group": "Қала кезеңі", "media": {"url": "media/gerb1909.jpg", "caption": "Казалинск қаласының гербі (1909)", "credit": "Wikimedia Commons"}}, {"start_date": {"year": 1871}, "display_date": "1871–1872", "text": {"headline": "«Түркістан альбомы»", "text": "<p>К.П. фон Кауфманның тапсырмасымен дайындалған «Түркістан альбомына» Казалинскінің форты, сауда қатарлары, Бұхарадан келген саудагерлер бейнеленген суреттер енді. РЭМ каталогындағы түсініктемеде қала 1853 жылы негізі қаланған деп көрсетілген.</p><p class='derekkoz'>Дереккөз: РЭМ онлайн-каталогы; «Түркістан альбомы», 1865–1872</p>"}, "group": "Қала кезеңі", "end_date": {"year": 1872}, "media": {"url": "media/bukhara_arrival.jpg", "caption": "Бұхарадан Казалинскіге келген саудагерлер", "credit": "«Түркістан альбомы» / РЭМ, АҚШ Конгресс кітапханасы"}}, {"start_date": {"year": 1873}, "display_date": "1873", "text": {"headline": "Е. Скайлердің Қазалыға келуі", "text": "<p>Америкалық дипломат Юджин Скайлер Түркістанға саяхаты кезінде Қазалыда болып, оны Орталық Азиядағы барлық сауда жолдары түйісетін жер деп сипаттады. Оның «Turkistan» кітабы 1876 жылы жарық көрді.</p><p class='derekkoz'>Дереккөз: E. Schuyler, 1876; Britannica, 1911</p>"}, "group": "Қала кезеңі", "media": {"url": "media/trade_stalls.jpg", "caption": "Казалинск қаласы. Сауда қатарлары", "credit": "«Түркістан альбомы» / АҚШ Конгресс кітапханасы"}}, {"start_date": {"year": 1888}, "display_date": "1888", "text": {"headline": "Қаланың сауда көрсеткіштері", "text": "<p>1888 жылы Казалинскіге 148 мың рубльдік тауар әкелініп, 144 мың рубльдік тауар шығарылды. Қала бюджеті 11 012 рубль болды, уезд халқы 128 375 адамға жетті.</p><p class='derekkoz'>Дереккөз: Брокгауз–Ефрон, 1894</p>"}, "group": "Қала кезеңі"}, {"start_date": {"year": 1894}, "display_date": "1894", "text": {"headline": "Брокгауз–Ефрон сөздігіндегі мақала", "text": "<p>Сөздіктің XIIIa томында Казалинск туралы мақала жарияланды. Онда қала халқы 6 мыңға жуық деп көрсетіліп, қалада үш сыныптық қалалық училище мен екі сыныптық қыздар мектебі жұмыс істегені айтылады.</p><p class='derekkoz'>Дереккөз: Брокгауз–Ефрон, 1894</p>"}, "group": "Қала кезеңі"}, {"start_date": {"year": 1897}, "display_date": "1897", "text": {"headline": "Бүкілресейлік халық санағы", "text": "<p>Ресей империясындағы алғашқы жалпы халық санағы бойынша Казалинск халқы 7600 адам болды.</p><p class='derekkoz'>Дереккөз: Britannica, 1911</p>"}, "group": "Қала кезеңі"}, {"start_date": {"year": 1900, "month": 9}, "display_date": "1900 ж. күзі", "text": {"headline": "Орынбор–Ташкент темір жолының құрылысы басталды", "text": "<p>Орынбор мен Ташкентті жалғайтын темір жолдың құрылысы 1900 жылдың күзінде басталды. Жол Сырдария бойындағы қалаларды, соның ішінде Қазалыны, империяның ішкі аймақтарымен байланыстыруға тиіс болды.</p><p class='derekkoz'>Дереккөз: Trans-Aral Railway (Wikipedia)</p>"}, "group": "Темір жол кезеңі"}, {"start_date": {"year": 1905}, "display_date": "1905", "text": {"headline": "Қазалы вокзалының салынуы", "text": "<p>Қазалы станциясының бір қабатты вокзал ғимараты 1905 жылы салынды. Тарихи ғимарат бүгінге дейін сақталып, жақында күрделі жөндеуден өтті.</p><p class='derekkoz'>Дереккөз: gov.kz, Қызылорда облысы</p>"}, "group": "Темір жол кезеңі", "media": {"url": "media/station.jpg", "caption": "Қазалы теміржол вокзалы (қазіргі көрінісі)", "credit": "Фото: Coopypasted, 2022 / Wikimedia Commons, CC BY-SA 4.0"}}, {"start_date": {"year": 1906, "month": 1, "day": 1}, "display_date": "1906 ж. 1 қаңтар", "text": {"headline": "Орынбор–Ташкент темір жолының ашылуы", "text": "<p>Темір жол ресми түрде ашылып, Қазалы Ресейдің ішкі аймақтарымен тұрақты байланысқа түсті. Wikimedia Commons-тағы фотосурет сипаттамасы вокзалдың салынған жылын 1906 деп береді.</p><p class='derekkoz'>Дереккөз: Trans-Aral Railway (Wikipedia); Wikimedia Commons, 2022</p>"}, "group": "Темір жол кезеңі"}, {"start_date": {"year": 1851}, "end_date": {"year": 1854}, "display_date": "1851–1854", "text": {"headline": "ДАТА ДАУЫ: Қазалының (№1 форттың) негізі қаланған жылы", "text": "<div class='dau-blok'><table class='dau'><tr><th>Жыл</th><th>Дереккөз</th></tr><tr><td><b>1851</b></td><td>Welcome.kz, 2024</td></tr><tr><td><b>1853</b></td><td>РЭМ онлайн-каталогы, Ресейлік Уикипедия, Қазақ Уикипедиясы, A. Morrison, 2020</td></tr><tr><td><b>1854</b></td><td>Брокгауз–Ефрон, 1894</td></tr></table><p class='qorytyndy'><b>Авторлық қорытынды:</b> 1853 жыл – бекіністің іс жүзінде салынған жылы (Ақмешіт жорығы кезінде, күзде). 1854 жыл – Сырдария шебі ресімделіп, бекініс «№1 форт» ретінде ресми тіркелген жыл. 1851 жыл – Райым тұрғындарының қоныс аударуымен байланысты, оны басқа дереккөздер растамайды. Қорытынды: Қазалының құрылған жылы – 1853.</p></div>"}, "group": "Дата дауы"}, {"start_date": {"year": 1854}, "end_date": {"year": 1855}, "display_date": "1854–1855", "text": {"headline": "ДАТА ДАУЫ: Райымнан №1 фортқа көшу (Райымның таратылуы)", "text": "<div class='dau-blok'><table class='dau'><tr><th>Жыл</th><th>Дереккөз</th></tr><tr><td><b>1854</b></td><td>Welcome.kz, 2024</td></tr><tr><td><b>1855</b></td><td>A. Morrison, 2020</td></tr></table><p class='qorytyndy'><b>Авторлық қорытынды:</b> 1854 жылы Райымның ресми таратылуы туралы шешім, ал 1855 жылы гарнизонның №1 фортқа толық көшірілуі айтылады. Екі дата бір процестің екі кезеңін білдіреді.</p></div>"}, "group": "Дата дауы"}, {"start_date": {"year": 1905}, "end_date": {"year": 1906}, "display_date": "1905–1906", "text": {"headline": "ДАТА ДАУЫ: Қазалы вокзалының салынған жылы", "text": "<div class='dau-blok'><table class='dau'><tr><th>Жыл</th><th>Дереккөз</th></tr><tr><td><b>1905</b></td><td>gov.kz, Қызылорда облысы</td></tr><tr><td><b>1906</b></td><td>Wikimedia Commons, 2022</td></tr></table><p class='qorytyndy'><b>Авторлық қорытынды:</b> Ғимарат 1905 жылы салынған (ресми дерек), ал 1906 жылғы 1 қаңтарда Орынбор–Ташкент жолы ресми ашылды. Сондықтан кейбір дереккөздер вокзалды 1906 жылмен байланыстырады.</p></div>"}, "group": "Дата дауы"}]};
+const EVENTS = [{"date": "1847", "title": "Райым бекінісінің салынуы", "group": "Райым кезеңі", "src": [["A. Morrison, 2020", "https://en.wikipedia.org/wiki/Fort_Raim"], ["Welcome.kz, 2024", "https://welcome.kz/en/info-cities/the-aral-sea/fort-raim"]]}, {"date": "1848", "title": "Арал теңізін зерттеу экспедициясы", "group": "Райым кезеңі", "src": [["A. Morrison, 2020", "https://en.wikipedia.org/wiki/Fort_Raim"], ["Welcome.kz, 2024", "https://welcome.kz/en/info-cities/the-aral-sea/fort-raim"], ["Әскери энциклопедия (Сытин), «Бутаков»", "https://ru.wikisource.org/wiki/ВЭ/ВТ/Бутаков,_Алексей_Иванович"]]}, {"date": "1851", "title": "Райым тұрғындарының Қазалыға көшуі (дау тудыратын дерек)", "group": "Дата дауы", "src": [["Welcome.kz, 2024", "https://welcome.kz/en/info-cities/the-aral-sea/fort-raim"]]}, {"date": "1853 ж. шілде", "title": "Ақмешіттің алынуы", "group": "Форт №1 кезеңі", "src": [["Әскери энциклопедия (Сытин), «Бутаков»", "https://ru.wikisource.org/wiki/ВЭ/ВТ/Бутаков,_Алексей_Иванович"], ["A. Morrison, 2020", "https://en.wikipedia.org/wiki/Fort_Raim"]]}, {"date": "1853 ж. күзі", "title": "№1 форттың салынуы", "group": "Форт №1 кезеңі", "src": [["Ресейлік Уикипедия", "https://ru.wikipedia.org/wiki/Казалинск"], ["Қазақ Уикипедиясы", "https://kk.wikipedia.org/wiki/Қазалы"], ["РЭМ онлайн-каталогы", "https://catalog.ethnomuseum.ru/entity/OBJECT/345286"]]}, {"date": "1854", "title": "Сырдария шебінің ресімделуі", "group": "Дата дауы", "src": [["Брокгауз–Ефрон, 1894", "https://ru.wikisource.org/wiki/ЭСБЕ/Казалинск"]]}, {"date": "1855", "title": "Райым гарнизонының №1 фортқа көшірілуі", "group": "Форт №1 кезеңі", "src": [["A. Morrison, 2020", "https://en.wikipedia.org/wiki/Fort_Raim"], ["Welcome.kz, 2024", "https://welcome.kz/en/info-cities/the-aral-sea/fort-raim"]]}, {"date": "1856 ж. 19–23 желтоқсан", "title": "Қазалы бекінісінің қоршалуы", "group": "Форт №1 кезеңі", "src": [["e-history.kz", "https://e-history.kz/en/history-of-kazakhstan/show/9573"]]}, {"date": "1857 ж. 9 қаңтар", "title": "Арықбалық шайқасы", "group": "Форт №1 кезеңі", "src": [["e-history.kz", "https://e-history.kz/en/history-of-kazakhstan/show/9573"]]}, {"date": "1865–1872", "title": "Арал флотилиясының Қазалыдағы базасы", "group": "Қала кезеңі", "src": [["«Түркістан альбомы», 1865–1872", "https://commons.wikimedia.org/wiki/Category:Turkestan_Album"], ["Қазақ Уикипедиясы", "https://kk.wikipedia.org/wiki/Қазалы"]]}, {"date": "1867", "title": "Қала мәртебесі және уездік орталық", "group": "Қала кезеңі", "src": [["Ресейлік Уикипедия", "https://ru.wikipedia.org/wiki/Казалинск"], ["Қазақ Уикипедиясы", "https://kk.wikipedia.org/wiki/Қазалы"]]}, {"date": "1871–1872", "title": "«Түркістан альбомы»", "group": "Қала кезеңі", "src": [["РЭМ онлайн-каталогы", "https://catalog.ethnomuseum.ru/entity/OBJECT/345286"], ["«Түркістан альбомы», 1865–1872", "https://commons.wikimedia.org/wiki/Category:Turkestan_Album"]]}, {"date": "1873", "title": "Е. Скайлердің Қазалыға келуі", "group": "Қала кезеңі", "src": [["E. Schuyler, 1876", "https://archive.org/details/turkistannotesof01schu"], ["Britannica, 1911", "https://en.wikisource.org/wiki/1911_Encyclopædia_Britannica/Kazala"]]}, {"date": "1888", "title": "Қаланың сауда көрсеткіштері", "group": "Қала кезеңі", "src": [["Брокгауз–Ефрон, 1894", "https://ru.wikisource.org/wiki/ЭСБЕ/Казалинск"]]}, {"date": "1894", "title": "Брокгауз–Ефрон сөздігіндегі мақала", "group": "Қала кезеңі", "src": [["Брокгауз–Ефрон, 1894", "https://ru.wikisource.org/wiki/ЭСБЕ/Казалинск"]]}, {"date": "1897", "title": "Бүкілресейлік халық санағы", "group": "Қала кезеңі", "src": [["Britannica, 1911", "https://en.wikisource.org/wiki/1911_Encyclopædia_Britannica/Kazala"]]}, {"date": "1900 ж. күзі", "title": "Орынбор–Ташкент темір жолының құрылысы басталды", "group": "Темір жол кезеңі", "src": [["Trans-Aral Railway (Wikipedia)", "https://en.wikipedia.org/wiki/Trans-Aral_Railway"]]}, {"date": "1905", "title": "Қазалы вокзалының салынуы", "group": "Темір жол кезеңі", "src": [["gov.kz, Қызылорда облысы", "https://www.gov.kz/memleket/entities/kyzylorda-sayasat/press/news/details/1252803"]]}, {"date": "1906 ж. 1 қаңтар", "title": "Орынбор–Ташкент темір жолының ашылуы", "group": "Темір жол кезеңі", "src": [["Trans-Aral Railway (Wikipedia)", "https://en.wikipedia.org/wiki/Trans-Aral_Railway"], ["Wikimedia Commons, 2022", "https://commons.wikimedia.org/wiki/File:Железнодорожный_вокзал_Казалинск_(Казалы).jpg"]]}];
+const DISPUTES = [{"q": "Қазалының (№1 форттың) негізі қаланған жылы", "pts": [{"year": 1851, "src": ["Welcome.kz, 2024"]}, {"year": 1853, "src": ["РЭМ онлайн-каталогы", "Ресейлік Уикипедия", "Қазақ Уикипедиясы", "A. Morrison, 2020"]}, {"year": 1854, "src": ["Брокгауз–Ефрон, 1894"]}], "c": "1853 – бекіністің іс жүзінде салынған жылы (күзде, Ақмешіт жорығынан кейін). 1854 – бекіністің Сырдария шебіне ресми енгізілген жылы. 1851 – басқа дереккөздермен расталмайды. Қорытынды: Қазалының құрылған жылы – 1853."}, {"q": "Райымнан №1 фортқа көшу (Райымның таратылуы)", "pts": [{"year": 1854, "src": ["Welcome.kz, 2024"]}, {"year": 1855, "src": ["A. Morrison, 2020"]}], "c": "1854 – Райымды тарату туралы шешім, 1855 – гарнизонның №1 фортқа толық көшірілуі. Екі дата бір процестің екі кезеңі."}, {"q": "Қазалы вокзалының салынған жылы", "pts": [{"year": 1905, "src": ["gov.kz, Қызылорда облысы"]}, {"year": 1906, "src": ["Wikimedia Commons, 2022"]}], "c": "Ғимарат 1905 жылы салынған, ал Орынбор–Ташкент темір жолы 1906 жылғы 1 қаңтарда ресми ашылған."}];
+const SOURCES = [["Брокгауз–Ефрон, 1894", "https://ru.wikisource.org/wiki/ЭСБЕ/Казалинск"], ["РЭМ онлайн-каталогы", "https://catalog.ethnomuseum.ru/entity/OBJECT/345286"], ["A. Morrison, 2020", "https://en.wikipedia.org/wiki/Fort_Raim"], ["Welcome.kz, 2024", "https://welcome.kz/en/info-cities/the-aral-sea/fort-raim"], ["e-history.kz", "https://e-history.kz/en/history-of-kazakhstan/show/9573"], ["Ресейлік Уикипедия", "https://ru.wikipedia.org/wiki/Казалинск"], ["Қазақ Уикипедиясы", "https://kk.wikipedia.org/wiki/Қазалы"], ["Britannica, 1911", "https://en.wikisource.org/wiki/1911_Encyclopædia_Britannica/Kazala"], ["E. Schuyler, 1876", "https://archive.org/details/turkistannotesof01schu"], ["«Түркістан альбомы», 1865–1872", "https://commons.wikimedia.org/wiki/Category:Turkestan_Album"], ["Әскери энциклопедия (Сытин), «Бутаков»", "https://ru.wikisource.org/wiki/ВЭ/ВТ/Бутаков,_Алексей_Иванович"], ["gov.kz, Қызылорда облысы", "https://www.gov.kz/memleket/entities/kyzylorda-sayasat/press/news/details/1252803"], ["Trans-Aral Railway (Wikipedia)", "https://en.wikipedia.org/wiki/Trans-Aral_Railway"], ["Wikimedia Commons, 2022", "https://commons.wikimedia.org/wiki/File:Железнодорожный_вокзал_Казалинск_(Казалы).jpg"]];
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* Timeline */
+try {
+  window.timeline = new TL.Timeline("timeline", TIMELINE, {
+    language: "locale/kk.json",
+    script_path: new URL(".", location.href).href,
+    timenav_height_percentage: 30,
+    scale_factor: 1.5,
+    initial_zoom: 2,
+    hash_bookmark: false,
+    font: null
+  });
+} catch (e) {
+  document.getElementById("timeline").innerHTML = '<p style="padding:24px">Хронологияны жүктеу мүмкін болмады.</p>';
+}
+
+/* Map */
+(function () {
+  if (!window.L) return;
+  const sites = [
+    {n: "Райым бекінісі", ll: [46.0717, 61.7282], y: "1847–1855", c: "#7b8a8c",
+     d: "Сырдария сағасындағы алғашқы бекініс. Арал флотилиясының кемелері осында құрастырылды. 1855 жылы гарнизон №1 фортқа көшірілді.",
+     img: "media/raim_shevchenko.jpg", s: "Fort Raim (A. Morrison, 2020); Welcome.kz"},
+    {n: "№1 форт – Қазалы (Казалинск)", ll: [45.7667, 62.1], y: "1853 – қазіргі уақыт", c: "#c23b2b",
+     d: "1853 жылы салынған бекініс. 1867 жылы қала мәртебесін алып, Казалинск уезінің орталығы болды. Арал флотилиясының айлағы мен шеберханалары осында орналасты.",
+     img: "media/fort1_settlement.jpg", s: "РЭМ каталогы; Брокгауз–Ефрон, 1894"},
+    {n: "№2 форт – Қармақшы (қазіргі Жосалы)", ll: [45.4893, 64.0915], y: "1850 жылдар", c: "#1f4e79",
+     d: "Сырдария шебіндегі келесі бекініс, Қазалы мен Перовск арасындағы аралық пункт.", img: null, s: "A. Morrison, 2020"},
+    {n: "Ақмешіт – Перовск форты (қазіргі Қызылорда)", ll: [44.85, 65.5167], y: "1853", c: "#1f4e79",
+     d: "Қоқан бекінісі Ақмешітті 1853 жылы В.А. Перовскийдің жасағы алды. Шабуылға «Перовский» пароходы қатысты. Кейін Перовск форты деп аталды.",
+     img: null, s: "Әскери энциклопедия (Сытин), «Бутаков»"}
+  ];
+  const bounds = L.latLngBounds([42.6, 57.4], [48.3, 68.8]);
+  const map = L.map("map", {maxBounds: bounds, maxBoundsViscosity: 1, minZoom: 6, maxZoom: 8, scrollWheelZoom: false})
+    .setView([45.55, 63.6], 7);
+  L.tileLayer("tiles/{z}/{x}/{y}.png", {minZoom: 6, maxZoom: 8, bounds: bounds,
+    attribution: "© OpenStreetMap авторлары"}).addTo(map);
+  L.polyline(sites.slice(1).map(s => s.ll), {color: "#1f4e79", weight: 3}).addTo(map)
+    .bindTooltip("Сырдария бекініс шебі");
+  L.polyline([sites[0].ll, sites[1].ll], {color: "#c23b2b", weight: 4, dashArray: "8 6"}).addTo(map)
+    .bindTooltip("1855: гарнизонның көшуі, ≈44,5 км");
+  let qazaly;
+  sites.forEach((s, i) => {
+    const html = `<h4>${esc(s.n)}</h4><div class="yrs">${esc(s.y)}</div><p>${esc(s.d)}</p>` +
+      (s.img ? `<img src="${s.img}" alt="${esc(s.n)}">` : "") + `<div class="src">Дереккөз: ${esc(s.s)}</div>`;
+    const m = L.circleMarker(s.ll, {radius: i === 1 ? 11 : 9, color: "#ffffff", weight: 2, fillColor: s.c, fillOpacity: 1})
+      .addTo(map).bindPopup(html, {maxWidth: 280, minWidth: 220}).bindTooltip(`${s.n} (${s.y})`);
+    if (i === 1) qazaly = m;
+  });
+  map.on("focus", () => map.scrollWheelZoom.enable());
+})();
+
+/* Disputes */
+(function () {
+  const box = document.getElementById("disputes");
+  DISPUTES.forEach(d => {
+    const ys = d.pts.map(p => p.year), lo = Math.min(...ys), hi = Math.max(...ys);
+    const maxN = Math.max(...d.pts.map(p => p.src.length));
+    const span = Math.max(hi - lo, 1);
+    const pts = d.pts.map(p => {
+      const left = 8 + (p.year - lo) / span * 84;
+      const size = 34 + p.src.length * 8;
+      const main = p.src.length === maxN && maxN > 1;
+      return `<div class="pt" style="left:${left}%"><span class="dot${main ? " main" : ""}" style="width:${size}px;height:${size}px;margin-top:${(50 - size) / 2}px">${p.year}</span><span class="who">${p.src.map(esc).join("<br>")}</span></div>`;
+    }).join("");
+    const n = d.pts.reduce((a, p) => a + p.src.length, 0);
+    const el = document.createElement("article");
+    el.className = "dispute";
+    el.innerHTML = `<h3>${esc(d.q)}</h3><p class="meta">${n} дереккөз · ${lo}–${hi} · айырма <span class="gap">${hi - lo} жыл</span></p>` +
+      `<div class="scale" style="height:${70 + Math.max(...d.pts.map(p => p.src.length)) * 19}px"><div class="rail"></div>${pts}</div>` +
+      `<p class="verdict"><b>Авторлық қорытынды.</b> ${esc(d.c)}</p>`;
+    box.appendChild(el);
+  });
+})();
+
+/* Events and sources */
+(function () {
+  document.getElementById("events").innerHTML = EVENTS.map(e =>
+    `<tr><td class="d">${esc(e.date)}</td><td>${esc(e.title)}</td><td><span class="chip${e.group === "Дата дауы" ? " dz" : ""}">${esc(e.group)}</span></td>` +
+    `<td>${e.src.map(([n, u]) => u ? `<a href="${esc(u.split(" ; ")[0])}" target="_blank" rel="noopener">${esc(n)}</a>` : esc(n)).join("; ")}</td></tr>`).join("");
+  document.getElementById("sources").innerHTML = SOURCES.map(([n, u]) =>
+    `<li>${esc(n)} – <a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></li>`).join("");
+})();
+</script>
+
+</body>
+</html>
